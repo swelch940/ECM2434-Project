@@ -1,0 +1,54 @@
+
+{% if error_message %}
+    <p>{{ error_message }}</p>
+{% endif %}
+
+<form method="post" class="form-group">
+    {% csrf_token %}
+    <div class=login-details>
+        <h1>Enter your Login</h1>
+    </div>
+    <form>
+        <input type=text name=username placeholder='Enter your Username'/>
+        <input type=password name=password placeholder='Enter your password'/>
+        <button class=login-button>Login</button>
+    </form>
+    <div class=register>
+        Don't have a user account?, <a href="/register" name=register>Register now</a>
+    </div>
+</form>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<head>
+    <title> login Page </title>
+</head>
+<body>
+    <section class="main">
+        <div class="main-heading">
+            <section class=login-register>
+                <div class=login-details>
+                    <h1>Enter your Login</h1>
+                </div>
+                <form>
+                    <input type=text name=username placeholder='Enter your Username'/>
+                    <input type=password name=password placeholder='Enter your password'/>
+                    <button class=login-button>Login</button>
+                </form>
+                <div class=register>
+                    Don't have a user account?, <a href=register.php name=register>Register now</a>
+                </div>
+            </section>       
+        </div>
+    </section>
+</body>
