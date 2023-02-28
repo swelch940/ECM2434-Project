@@ -40,3 +40,7 @@ def register(request):
         'form':form,
     }
     return render(request, 'register/register.html',context)
+
+
+def tree(request):
+    return render(request, 'tree.html')
