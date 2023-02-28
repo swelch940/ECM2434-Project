@@ -1,27 +1,19 @@
 <html>
 <head>
 	<title> Tree game home page </title>
-	<link rel ="stylesheet" href="style.css">
+	
 </head>
+{% load static %}
+<link rel ="stylesheet" href="{%static '/home/homestyle.css'%}">
 <body>
 	<div class = "banner">
-        <div class = "navbar">
-            <ul>
-                <li><a href="#">Extra</a></li>
-                <li><a href="#">Buttons</a></li>
-            </ul>
-        </div>
         <div class="content">
-                <div class = "wrapper"></div>
-                    <h1> TREE GAME</h1>
-                </div>
-            <p> Home page/subtext <br> new line</p>
+            <h1 class = "home"> TREE GAME </h1>
             <div>
-             <button type = "button"><span></span>Login</button>
-             <button type = "button"><span></span>Create account</button>
-         </div>
+                <a href = "login.html"><button type = "button"><span></span>Login</button></a>
+                <a href = "createaccount.html"><button type = "button"><span></span>Create account</button></a>
+            </div>
+        </div>
     </div>
-</div>
-
 </body>
 </html>
