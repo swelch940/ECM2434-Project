@@ -98,9 +98,8 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
             loop.close()
             
 class BarkBuddyDemo(BarkBuddy): #barkbuddy class to be used in the demo, very fudgeable
-    stages = {0:"Default",2:"Steven"}
     def __init__(self): #call init of barkbuddy with edited oxygen count
-        super(BarkBuddyDemo,self).__init__(oxygen=24)
+        super(BarkBuddyDemo,self).__init__(oxygen=24, stages = {0:"Default",2:"Steven"})
         
     async def demoFuncs(self):
         self.oxygen = await self.oxygen + 5
