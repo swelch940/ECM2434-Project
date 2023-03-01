@@ -37,7 +37,7 @@ class BarkBuddy:
         elif self.water == 0 and spam > 0:
             self.endurance = spam
         elif self.water > 0 and self.endurance < 5:#if it has been watered strengthen tree
-            self.endurance = await self.add(self.endurance, 1)
+            self.endurance = self.add(self.endurance, 1)
     
     #INCREASE LEVEL
     async def level_handling(self):
@@ -58,7 +58,7 @@ class BarkBuddy:
     
     #WATER THE TREE
     async def water_tree(self):
-        self.water = await self.add(self.water,20)
+        self.water = self.add(self.water,20)
     
     #THE CODE THAT THE EVENT LOOP RUNS
     async def event_loop(self):
