@@ -8,144 +8,151 @@
 
 <body>
     <div class="banner">
-        <nav>
-            <img src="{%static '/home/images/transparent.png'%}" class="logo">
-            <ul>
-                <li><a href="/tree">My Tree</a></li>
-                <li><a href="/map">Map</a></li>
-                <li><a href="/leaderboard">Leaderboard</a></li>
-                <li><a href="/home">Logout</a></li>
-            </ul>
-            <img src="{%static '/home/images/transparent.png'%}" class="logo">
-        </nav>
-    </div>
-    <div class="block">
-        <div class="box">
-            <p class="number">
-                <span class="num">70</span>
-                <span class="sub">%</span>
-            </p>
-            <p class="title">Oxygen</p>
-        </div>
-        <span class="dots"></span>
-        <svg class="svg">
-            <defs>
-                <linearGradient id="gradientStyle">
-                    <stop offset="0%" stop-color="#565656" />
-                    <stop offset="100%" stop-color="#b7b5b5" />
-                </linearGradient>
-            </defs>
-            <circle class="circle" cx="90" cy="90" r="80" />
-        </svg>
-    </div>
-    <div class="block">
-        <div class="box">
-            <p class="number">
-                <span class="num">50</span>
-                <span class="sub">%</span>
-            </p>
-            <p class="title">Water</p>
-        </div>
-        <span class="dots"></span>
-        <svg class="svg">
-            <circle class="circle" cx="90" cy="90" r="80" />
-        </svg>
-    </div>
-    <script>
-        const block = document.querySelectorAll('.block');
-        window.addEventListener('load', function () {
-            block.forEach(item => {
-                let numElement = item.querySelector('.num');
-                let num = parseInt(numElement.innerText);
-                let count = 0;
-                let time = 1500 / num;
-                let circle = item.querySelector('.circle');
+    {% if user.is_authenticated %}
+        {% block content %}
+                <nav>
+                    <img src="{%static '/home/images/transparent.png'%}" class="logo">
+                    <ul>
+                        <li><a href="/tree">My Tree</a></li>
+                        <li><a href="/map">Map</a></li>
+                        <li><a href="/leaderboard">Leaderboard</a></li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                    <img src="{%static '/home/images/transparent.png'%}" class="logo">
+                </nav>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">70</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">Oxygen</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <defs>
+                        <linearGradient id="gradientStyle">
+                            <stop offset="0%" stop-color="#565656" />
+                            <stop offset="100%" stop-color="#b7b5b5" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="circle" cx="90" cy="90" r="80" />
+                </svg>
+            </div>
+            <div class="block">
+                <div class="box">
+                    <p class="number">
+                        <span class="num">50</span>
+                        <span class="sub">%</span>
+                    </p>
+                    <p class="title">Water</p>
+                </div>
+                <span class="dots"></span>
+                <svg class="svg">
+                    <circle class="circle" cx="90" cy="90" r="80" />
+                </svg>
+            </div>
+            <script>
+                const block = document.querySelectorAll('.block');
+                window.addEventListener('load', function () {
+                    block.forEach(item => {
+                        let numElement = item.querySelector('.num');
+                        let num = parseInt(numElement.innerText);
+                        let count = 0;
+                        let time = 1500 / num;
+                        let circle = item.querySelector('.circle');
 
-                setInterval(() => {
-                    if (count == num) {
-                        clearInterval();
-                    } else {
-                        count += 1;
-                        numElement.innerText = count;
+                        setInterval(() => {
+                            if (count == num) {
+                                clearInterval();
+                            } else {
+                                count += 1;
+                                numElement.innerText = count;
+                            }
+
+                        }, time)
+
+                        circle.style.strokeDashoffset
+                            = 503 - (503 * (num / 100));
+
+                        let dots = item.querySelector('.dots');
+                        dots.style.transform = `rotate(${360 * (num / 100)}deg)`;
+                    })
+                });
+            </script>
+
+
+            <script>
+                //script for getting current location
+
+                //function to add values to the page url
+                function insertParam(key, value) {
+                    key = encodeURIComponent(key);
+                    value = encodeURIComponent(value);
+
+                    // kvp looks like ['key1=value1', 'key2=value2', ...]
+                    var kvp = document.location.search.substr(1).split('&');
+                    let i = 0;
+
+                    for (; i < kvp.length; i++) {
+                        if (kvp[i].startsWith(key + '=')) {
+                            let pair = kvp[i].split('=');
+                            pair[1] = value;
+                            kvp[i] = pair.join('=');
+                            break;
+                        }
                     }
 
-                }, time)
+                    if (i >= kvp.length) {
+                        kvp[kvp.length] = [key, value].join('=');
+                    }
 
-                circle.style.strokeDashoffset
-                    = 503 - (503 * (num / 100));
+                    // can return this or...
+                    let params = kvp.join('&');
 
-                let dots = item.querySelector('.dots');
-                dots.style.transform = `rotate(${360 * (num / 100)}deg)`;
-            })
-        });
-    </script>
-
-
-    <script>
-        //script for getting current location
-
-        //function to add values to the page url
-        function insertParam(key, value) {
-            key = encodeURIComponent(key);
-            value = encodeURIComponent(value);
-
-            // kvp looks like ['key1=value1', 'key2=value2', ...]
-            var kvp = document.location.search.substr(1).split('&');
-            let i = 0;
-
-            for (; i < kvp.length; i++) {
-                if (kvp[i].startsWith(key + '=')) {
-                    let pair = kvp[i].split('=');
-                    pair[1] = value;
-                    kvp[i] = pair.join('=');
-                    break;
+                    // reload page with new params
+                    document.location.search = params;
                 }
-            }
 
-            if (i >= kvp.length) {
-                kvp[kvp.length] = [key, value].join('=');
-            }
+                //Code for getting current location
 
-            // can return this or...
-            let params = kvp.join('&');
+                //Creating the button
+                const locationButton = document.createElement("button");
+                locationButton.textContent = "Get current location";
+                locationButton.classList.add("custom-map-control-button");
+                document.body.appendChild(locationButton)
 
-            // reload page with new params
-            document.location.search = params;
-        }
+                //Function of the button
+                locationButton.addEventListener("click", () => {
+                    // Try HTML5 geolocation.
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            (position) => {
+                                const pos = {
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude,
+                                };
 
-        //Code for getting current location
-
-        //Creating the button
-        const locationButton = document.createElement("button");
-        locationButton.textContent = "Get current location";
-        locationButton.classList.add("custom-map-control-button");
-        document.body.appendChild(locationButton)
-
-        //Function of the button
-        locationButton.addEventListener("click", () => {
-            // Try HTML5 geolocation.
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const pos = {
-                            lat: position.coords.latitude,
-                            lng: position.coords.longitude,
-                        };
-
-                        //Adds the cords the url
-                        insertParam("cords:", String(pos.lat) + "," + String(pos.lng))
-                    },
-                    () => {
-                        handleLocationError(true, infoWindow, map.getCenter());
+                                //Adds the cords the url
+                                insertParam("cords:", String(pos.lat) + "," + String(pos.lng))
+                            },
+                            () => {
+                                handleLocationError(true, infoWindow, map.getCenter());
+                            }
+                        );
+                    } else {
+                        // Browser doesn't support Geolocation
+                        handleLocationError(false, infoWindow, map.getCenter());
                     }
-                );
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-        });
+                });
 
-    </script>
+            </script>
+        {% endblock %}
+    {% else %}
+        <p> Sorry you are not logged in, login <a href="/login">here </a></p>
+    {% endif %}
+
 </body>
 
 </html>
