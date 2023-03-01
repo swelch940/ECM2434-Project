@@ -9,7 +9,7 @@ def home(request):
     return render(request, 'home.html')
 
 def map(request):
-
+    
     print(request)
     
     urlString = str(request)
@@ -43,4 +43,15 @@ def register(request):
 
 
 def tree(request):
+
+    urlString = str(request)
+    splitUrl = urlString.split("%3A=")
+    if(len(splitUrl) == 2):
+        #cords contains the longitude and latitude of the users current location
+        #[0] is lat, [1]is lon
+        cords = splitUrl[1].split("%2C")
+        cords[1] = cords[1][:-1]
+        cords[1] = cords[1][:-1]
+        print(cords)
+    
     return render(request, 'tree.html')
