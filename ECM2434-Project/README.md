@@ -32,7 +32,7 @@ To run the game run inside of the mysite folder **python manage.py runserver**, 
       - _pycache_
       - BarkBuddy
         - barkbuddy_test.py
-        - barkbuddy.py
+        - bark_buddy.py
         - barkpickler.py
       - migrations
         - _pycache_
