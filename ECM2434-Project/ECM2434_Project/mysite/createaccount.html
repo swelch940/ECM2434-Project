@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title> Tree game home page </title>
+	<link rel ="stylesheet" href="loginstyle.css">
+</head>
+<body>
+	<div class = "banner">
+        <nav>
+            <ul>
+                <li><a href="home.html">Go back</a></li>
+            </ul>
+            <img src = "transparent.png" class = "logo">
+        </nav>
+        <div class="center">
+            <h1> Create Account </h1>
+            <form method = "post">
+                <div class="login_text">
+                    <input type = "text" required>
+                    <span></span>
+                    <label> {% block title %}
+                        Login Here
+                        {% endblock %}
+                        {% load crispy_forms_tags %}
+                        {% block content %}</label>
+                </div>
+                <div class="login_text">
+                    <input type = "text" required>
+                    <span></span>
+                    <label> Last Name</label>
+                </div>
+                <div class="login_text">
+                    <input type = "text" required>
+                    <span></span>
+                    <label> Email</label>
+                </div>
+                <div class="login_text">
+                    <input type = "text" required>
+                    <span></span>
+                    <label> Username</label>
+                </div>
+                <div class="login_text">
+                    <input type = "password" required>
+                    <span></span>
+                    <label> Password</label>
+                </div>
+                <div class="login_text">
+                    <input type = "password" required>
+                    <span></span>
+                    <label> Confirm Password</label>
+                </div>
+                <input type = "submit" value = "Create Account">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
