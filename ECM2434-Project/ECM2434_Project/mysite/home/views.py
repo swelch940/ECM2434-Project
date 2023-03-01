@@ -55,3 +55,4 @@ def tree(request):
         print(cords)
     
     return render(request, 'tree.html')
+

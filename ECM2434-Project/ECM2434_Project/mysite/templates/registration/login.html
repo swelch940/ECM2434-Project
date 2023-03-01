@@ -1,17 +1,18 @@
 {% block title %}
 <head>
-	Login here
-	<link rel="stylesheet" href="loginstyle.css"/>
+{% load static %}
+	<link rel="stylesheet" href="{%static '/home/loginstyle.css'%}">
 </head>
 {% endblock %}
 
 {% block content %}
 	<body>
-		<form method="post" class="from-group">
-		{% csrf_token %}
-		{{ form }}
-		<p>Don't have an account? Create one <a href="/register">here</a></p>
-		<button type="submit" class="btn btn-success">Login</button>	
+			<p class="login">Login Here</p>
+			<form method="post" class="from-group">
+			{% csrf_token %}
+			{{ form }}
+			<p>Don't have an account? Create one <a href="/register">here</a></p>
+		<button type="submit" class="btn btn-success"><span></span>Login</button>	
 		</form>
 	</body>
 {% endblock %}   
