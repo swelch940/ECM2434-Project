@@ -1,14 +1,19 @@
 {% block title %}
-Login Here
+<head>
+	Login here
+	<link rel="stylesheet" href="loginstyle.css"/>
+</head>
 {% endblock %}
 
 {% block content %}
-     <form method="post" class="from-group">
-	{% csrf_token %}
-	{{ form }}
-	<p>Don't have an accoount? Create one <a href="/register">here</a></p>
-	<button type="submit" class="btn btn-success">Login</button>	
-    </form>
+	<body>
+		<form method="post" class="from-group">
+		{% csrf_token %}
+		{{ form }}
+		<p>Don't have an account? Create one <a href="/register">here</a></p>
+		<button type="submit" class="btn btn-success">Login</button>	
+		</form>
+	</body>
 {% endblock %}   
 
 
