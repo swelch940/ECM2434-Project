@@ -1,19 +1,20 @@
 <html>
 <head>
 	<title> Tree Stats </title>
-    <link rel="stylesheet" href="treestats.css">
 </head>
+{% load static %}
+<link rel ="stylesheet" href="{%static '/home/treestats.css'%}">
 <body>
     <div class = "banner">
         <nav>
-            <img src= "transparent.png" class = "logo">
+            <img src= "{%static '/home/images/transparent.png'%}" class = "logo">
             <ul>
-                <li><a href="tree.html">My Tree</a></li>
-                <li><a href="map.html">Map</a></li>
-                <li><a href="leaderboard.html">Leaderboard</a></li>
-                <li><a href="home.html">Logout</a></li>
+                <li><a href="/tree">My Tree</a></li>
+                <li><a href="/map">Map</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li><a href="/home">Logout</a></li>
             </ul>
-            <img src = "transparent.png" class = "logo">
+            <img src = "{%static '/home/images/transparent.png'%}" class = "logo">
         </nav>
     </div>
     <div class = "block">
