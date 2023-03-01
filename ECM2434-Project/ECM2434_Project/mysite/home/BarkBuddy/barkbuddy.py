@@ -11,8 +11,8 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
         self.endurance = endurance #number of days the tree can go on 0 water, once this value reaches 0 the tree fucking dies. should not go higher than the initial value
         self.alive = alive
         self.current_stage = current_stage
-        self.sprite = self.stages[self.current_stage]
         self.stages = stages
+        self.sprite = self.stages[self.current_stage]
         self.GUI = self.init_gui()
         self.run_events() #RUN THE TREEEEEEEEEE
     
@@ -20,7 +20,7 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
         GUI= turtle.Turtle() #Intialising the GUI
         GUI.screen.bgcolor("black") #Background colour of the GUI
         GUI.pensize(2) #The size of the cursor as it draws the tree.
-        GUI.color("brown") #Color of the intial root.  
+        GUI.color("#403b11") #Color of the intial root.  
         GUI.left(90) #Makes sure the cursor 
         GUI.backward(100) 
         GUI.speed(100) #The speed of the cursor
@@ -41,9 +41,9 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
             return
         else:
             self.GUI.forward(size) # Moves the cursor forward before drawing the the next branch    
-            self.GUI.color("green") #Colour of the leafs on the tree
+            self.GUI.color("#2ec934") #Colour of the leafs on the tree
             self.GUI.circle(2.5) #Will draw each leaf and the number is the size of the leafs
-            self.GUI.color("brown") #Colour of the roots of the tree
+            self.GUI.color("#403b11") #Colour of the roots of the tree
             self.GUI.left(30) #Will keep the cursor moving left and draw the leafs until out i is less than 10
             self.tree_graphic(3*size/4) #Rescusively call the tree fucntio decreasing size.
             self.GUI.right(60) #Will move the cursor right for the tree to draw another branch.
@@ -103,8 +103,10 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
             await self.murder_tree()
         elif self.water == 0 and self.endurance > 0: #tree weakens if neglected
             await self.weaken()
+            self.age += 1
         elif self.water > 0: #if tree is not neglected then increase endurance
             await self.strengthen()
+            self.age += 1
     
     async def on_load(self): #when the tree is loaded by the website this is all that the user should know
         return self.oxygen, self.level, self.water, self.owner, self.age, self.alive, self.stages[self.current_stage]
@@ -116,7 +118,7 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
                 await self.bihourly()
             await self.daily()
     
-    async def run_events(self):
+    def run_events(self):
         loop = asyncio.get_event_loop()
         try:
             loop.run_until_complete(self.living_event_loop())
@@ -130,8 +132,12 @@ class BarkBuddyDemo(BarkBuddy): #barkbuddy class to be used in the demo, very fu
         super(BarkBuddyDemo,self).__init__(oxygen=24, stages={0:"Default",2:"Steven"})
         
     async def demoFuncs(self):
-        self.oxygen = await self.oxygen + 5
+        self.oxygen = self.oxygen + 5
         if self.check_level_increase(): await self.increment_level()
+    
+    async def living_event_loop(self):
+        asyncio.sleep(15)
+        await self.demoFuncs()
 
 
 class TestBuddy(BarkBuddy):

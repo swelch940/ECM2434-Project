@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+=======
 # ECM2434-Project
 ECM2434 Group Software Engineering Project
 =======
@@ -81,4 +81,3 @@ To run the game run inside of the mysite folder **python manage.py runserver**, 
 
 - Project Created by **Luis Hidalgo**, **Steven Welch**, **Joshua Curry**, **Callum Wilton** and **Nahum hillier**
 - Github repostery: **<https://github.com/swelch940/ECM2434-Project>**
->>>>>>> Stashed changes
