@@ -1,16 +1,4 @@
-import asyncio
-import turtle
-
-
-GUI= turtle.Turtle() #Intialising the GUI
-GUI.screen.bgcolor("black") #Background colour of the GUI
-GUI.pensize(2) #The size of the cursor as it draws the tree.
-GUI.color("brown") #Color of the intial root.  
-GUI.left(90) #Makes sure the cursor 
-GUI.backward(100) 
-GUI.speed(100) #The speed of the cursor
-GUI.shape('arrow') #Shape of the cursor
-
+import asyncio, turtle
 
 class BarkBuddy: #name can be changed once we figure it out, I just like the name Bark Buddy
     def __init__(self, id, username, level=1,water=20,age=0,endurance=5,alive=True,current_stage=0, stages={0:"Default"}):
@@ -25,9 +13,10 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
         self.current_stage = current_stage
         self.sprite = self.stages[self.current_stage]
         self.stages = stages
+        self.GUI = self.init_gui()
         self.run_events() #RUN THE TREEEEEEEEEE
-
-
+    
+    def init_gui(self):
         GUI= turtle.Turtle() #Intialising the GUI
         GUI.screen.bgcolor("black") #Background colour of the GUI
         GUI.pensize(2) #The size of the cursor as it draws the tree.
@@ -36,7 +25,8 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
         GUI.backward(100) 
         GUI.speed(100) #The speed of the cursor
         GUI.shape('arrow') #Shape of the cursor
-        
+        return GUI
+    
     def murder_tree(self): #nick will like this one
         self.alive = False
         #other stuff to sort goes here
@@ -50,16 +40,16 @@ class BarkBuddy: #name can be changed once we figure it out, I just like the nam
         if size<10:
             return
         else:
-            GUI.forward(size) # Moves the cursor forward before drawing the the next branch    
-            GUI.color("green") #Colour of the leafs on the tree
-            GUI.circle(2.5) #Will draw each leaf and the number is the size of the leafs
-            GUI.color("brown") #Colour of the roots of the tree
-            GUI.left(30) #Will keep the cursor moving left and draw the leafs until out i is less than 10
+            self.GUI.forward(size) # Moves the cursor forward before drawing the the next branch    
+            self.GUI.color("green") #Colour of the leafs on the tree
+            self.GUI.circle(2.5) #Will draw each leaf and the number is the size of the leafs
+            self.GUI.color("brown") #Colour of the roots of the tree
+            self.GUI.left(30) #Will keep the cursor moving left and draw the leafs until out i is less than 10
             self.tree_graphic(3*size/4) #Rescusively call the tree fucntio decreasing size.
-            GUI.right(60) #Will move the cursor right for the tree to draw another branch.
+            self.GUI.right(60) #Will move the cursor right for the tree to draw another branch.
             self.tree_hraphic(3*size/4) #Rescusively call the tree fucntio decreasing i.
-            GUI.left(30) #Moves the cursor back left and continues drawing until the i is less than 10.
-            GUI.backward(size) #Brings the cursor backwards after we finish drawing the branch
+            self.GUI.left(30) #Moves the cursor back left and continues drawing until the i is less than 10.
+            self.GUI.backward(size) #Brings the cursor backwards after we finish drawing the branch
 
     async def get_image_file(self): #returns an iterator which goes over the file object
         async with open(self.stages[self.current_stage]+".png","rb") as f: l = await f.read()
@@ -171,4 +161,3 @@ class TestBuddy(BarkBuddy):
     async def on_load(self):
         return await super().on_load()
     
-        
