@@ -17,8 +17,19 @@
     }
   </style>
 </head>
-
+{% load static %}
+<link rel ="stylesheet" href="{%static '/home/treestats.css'%}">
 <body>
+    <nav>
+        <img src= "{%static '/home/images/transparent.png'%}" class = "logo">
+        <ul>
+            <li><a href="/tree">My Tree</a></li>
+            <li><a href="/map">Map</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            <li><a href="/home">Logout</a></li>
+        </ul>
+        <img src = "{%static '/home/images/transparent.png'%}" class = "logo">
+    </nav>
 
   <div id="map"></div>
 

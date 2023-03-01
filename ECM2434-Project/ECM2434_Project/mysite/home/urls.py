@@ -8,5 +8,6 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard, name="leaderboard"),
     path('admin/', admin.site.urls),
     path('register/', views.register, name="register"),
+    path('tree', views.tree, name="tree"),
     path('', include("django.contrib.auth.urls")),
 ]
