@@ -76,3 +76,8 @@ class BarkBuddy:
     def run_loop(self):
         while self.alive:
             asyncio.run(self.event_loop())
+
+
+class DemoBuddy(BarkBuddy):
+    def __init__(self, id, username):
+        super(BarkBuddy,self).__init__(id, username, stages={0:"Default",2:"Harry"})
