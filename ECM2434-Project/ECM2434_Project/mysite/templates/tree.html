@@ -5,8 +5,19 @@
 </head>
 {% load static %}
 <link rel="stylesheet" href="{%static '/home/treestats.css'%}">
+<script>
+    window.onload = function(){
+        var data = JSON.parse("{{oxygen|escapejs}}");
+        var oxygen = data["Oxygen"];
+        var water = data["Water"];
+        document.getElementById("oxygen").innerHTML = oxygen;
+        document.getElementById("water").innerHTML = water;
+    };
+    
+</script>
 
 <body>
+
     <div class="banner">
     {% if user.is_authenticated %}
         {% block content %}
@@ -24,8 +35,8 @@
             <div class="block">
                 <div class="box">
                     <p class="number">
-                        <span class="num">70</span>
-                        <span class="sub">%</span>
+                        <span class="num" id="oxygen"></span>
+                        <span class="sub">LVL</span>
                     </p>
                     <p class="title">Oxygen</p>
                 </div>
@@ -43,7 +54,8 @@
             <div class="block">
                 <div class="box">
                     <p class="number">
-                        <span class="num">50</span>
+                        
+                        <span class="num" id="water"></span>
                         <span class="sub">%</span>
                     </p>
                     <p class="title">Water</p>
@@ -81,7 +93,9 @@
                     })
                 });
             </script>
-
+            
+            
+            
 
             <script>
                 //script for getting current location
@@ -152,6 +166,33 @@
     {% else %}
         <p> Sorry you are not logged in, login <a href="/login">here </a></p>
     {% endif %}
+    
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <p>
+        <center>
+    <script>
+        var data = JSON.parse("{{oxygen|escapejs}}");
+        var oxygen = data["Oxygen"];
+        var water = data["Water"];
+        //insertParam("oxygen:", oxygen);
+
+        if (oxygen >= 5) {
+            document.write('<img src="https://i.gifer.com/ZdPH.gif"/>');
+        }
+       
+         else {
+            document.write('<img src="https://i.gifer.com/Yg6D.gif"/>');
+        }  
+
+        
+    </script>
+
+    </center>
+
+    </p>
 
 </body>
 
