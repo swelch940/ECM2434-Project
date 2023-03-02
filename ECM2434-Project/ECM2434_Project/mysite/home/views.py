@@ -1,3 +1,5 @@
+#@authors Steven Welch, Joshua Curry, Callum Wilson, Nahum Hillier, Luis Hidalgo
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from mysite.forms import RegisterForm
