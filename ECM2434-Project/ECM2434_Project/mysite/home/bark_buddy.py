@@ -1,3 +1,4 @@
+#@authors Nahum Hillier
 import asyncio
 
 class BarkBuddy:
