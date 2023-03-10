@@ -79,5 +79,5 @@ To run the game run inside of the mysite folder **python manage.py runserver**, 
 
 ## Details
 
-- Project Created by **Luis Hidalgo**, **Steven Welch**, **Joshua Curry**, **Callum Wilton** and **Nahum hillier**
+- Project Created by **Luis Hidalgo**, **Steven Welch**, **Joshua Curry**, **Callum Wilton** and **Nahum Hillier**
 - Github repostery: **<https://github.com/swelch940/ECM2434-Project>**
