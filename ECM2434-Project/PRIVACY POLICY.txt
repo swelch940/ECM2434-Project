@@ -1,0 +1,30 @@
+Group 23 Privacy Policy
+
+We store the following information:
+- Your email address
+
+We process the following information:
+- Your email address, which is provided to us when you sign up
+- Your location, which is provided to us when you click the "Get current location" button on the main page
+
+How we collect your information and why we collect it
+- Your email address is provided to us by you in order for you to create an account and to use our service
+- Your location is provided to us by Google's Maps API, and is used to verify that you are located near a water fountain on the University of Exeter campus.
+
+Under the UK General Data Protection Regulation (UK GDPR) the lawful bases we rely on for processing this information are entirely dependent upon your consent. You can do this at any time through the following means:
+- You can withdraw your consent to allowing us to process your email address by deleting your account with us.
+- You can withdraw your consent to allowing us to process your location by disabling the location feature in your browser settings. This will impair app functionality however.
+
+How we store your personal information
+- We store your email address within our databases for the duration of your time using our service. We will dispose of your information by deleting your account, and any information related to that account. This includes your BarkBuddy and your placement on any of our leaderboards.
+- We do not store your location.
+
+Under UK GDPR you have rights including:
+- Your right of access - this lets you ask us for copies of your information.
+- Your right to rectification - this lets you ask us to rectify any personal information you think is inaccurate. You also have the right to ask us to complete information you think is incomplete.
+- Your right to erasure - this lets you ask us to erase your personal information in certain circumstances.
+- Your right to restriction of processing - this lets you ask us to restrict the processing of your information in certain circumstances.
+- Your right to object of processing - this lets you object to the processing of your information in certain circumstances.
+- Your right to data portability - you have the right to ask tha we transfer the personal information you provide to us to another organisation (or to yourself) in certain circumstances.
+Exercising these rights requires no payment. If you make a request, we must respond to you within a month.
+Please send a direct message to SporeCloud#9167 on Discord if you wish to make a request.
