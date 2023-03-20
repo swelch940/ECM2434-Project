@@ -7,4 +7,4 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField()
     class Meta:
         model = User
-        fields = ["username", "email", "password1", "password2"]
+        fields = ["username", "email", "password1", "password2"]#password1 is the first password input, password2 is the confirmation input

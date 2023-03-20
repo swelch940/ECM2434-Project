@@ -19,8 +19,8 @@ from django.http import HttpResponse
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path('register/', views.register, name="register"),
+    path('admin/', admin.site.urls),#admin site
+    path('', include('home.urls')),#home page. this also hosts the code for viewing the tree
+    path('register/', views.register, name="register"),#account registry page
     path('', include("django.contrib.auth.urls")),
 ]

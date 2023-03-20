@@ -14,7 +14,7 @@ from json import dumps
 def home(request):
     return render(request, 'home.html')
 
-def map(request):
+def map(request):#map page
     
     print(request)
     
@@ -81,7 +81,8 @@ def tree(request):
 
 
 def checkNearFountain(userCords):
-    displacement = math.sqrt((50.7390871 - float(userCords[0]))**2.0  + (-3.5382999 - float(userCords[1]))**2.0 )
+    """checks if the user is near a fountain"""
+    displacement = math.sqrt((50.7390871 - float(userCords[0]))**2.0  + (-3.5382999 - float(userCords[1]))**2.0 )#pythagorean distance between user and target
     print(displacement)
     if(displacement <= 0.00638):
         return True
