@@ -41,7 +41,7 @@ def register(request):
         form = RegisterForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/tree")
+            return redirect("/login")
 
     context = {
         'form':form,
