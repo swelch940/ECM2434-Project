@@ -7,8 +7,8 @@
 
 {% block content %}
 	<body>
-			<p class="login">Login Here</p>
-			<form method="post" class="from-group">
+		<p class="login">Login Here</p>
+		<form method="post" class="from-group">
 			{% csrf_token %}
 			{{ form }}
 			<p>Don't have an account? Create one <a href="/register">here</a></p>
