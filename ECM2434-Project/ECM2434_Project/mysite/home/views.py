@@ -84,7 +84,7 @@ def checkNearFountain(userCords):
     """checks if the user is near a fountain"""
     displacement = math.sqrt((50.7390871 - float(userCords[0]))**2.0  + (-3.5382999 - float(userCords[1]))**2.0 )#pythagorean distance between user and target
     print(displacement)
-    if(displacement <= 0.00638):
+    if(displacement <= 0.0638): #place holder value to be adjusted(try 0.00638?)
         return True
     else:
         return False
