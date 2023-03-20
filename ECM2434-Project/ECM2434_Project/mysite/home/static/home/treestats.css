@@ -107,7 +107,7 @@ body{
     transform: rotate(-90deg);
 }
 
-.circle {
+.circle{
     stroke: url(#gradientStyle);
     stroke-width: 4px;
     stroke-dasharray: 503;
@@ -150,4 +150,8 @@ nav ul li a{
 nav ul li a:hover{
 	color: #abffa0;
 	transition: .3s;
+}
+
+.loggedIn{
+    color: red;
 }

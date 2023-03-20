@@ -1,5 +1,6 @@
 #@authors Steven Welch, Joshua Curry, Callum Wilson, Nahum Hillier, Luis Hidalgo
-
+from django.db import models
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from mysite.forms import RegisterForm
@@ -89,3 +90,7 @@ def checkNearFountain(userCords):
     else:
         return False
     
+
+class Score(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    score = models.IntegerField()
