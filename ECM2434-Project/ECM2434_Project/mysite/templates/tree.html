@@ -168,12 +168,8 @@
         <p> Sorry you are not logged in, login <a href="/login">here </a></p>
     {% endif %}
     
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
     
+   
     <center>
     <canvas></canvas>
     <script>
@@ -185,7 +181,7 @@
 
         const canvas = document.querySelector('canvas');
         canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.height = 1500;
         const ctx = canvas.getContext('2d');
         
 
@@ -208,7 +204,7 @@
             ctx.stroke();
         
             //stops drawing when length of tree section is too small
-            if (len < 50) {
+            if (len < 10) {
                 ctx.beginPath();
                 ctx.arc(0,-len, 10,0, Math.PI/2);
                 ctx.fill();
@@ -217,8 +213,16 @@
             }
         
             curve = (Math.random() * 10) + 10;
-            drawTree(0, -len, len*0.7, angle + 7, branchWidth * 0.50);
-            drawTree(0, -len, len*0.7, angle- 7, branchWidth * 0.50);
+            
+            //Getting value for oxygen to determine tree size
+            var data = JSON.parse("{{oxygen|escapejs}}");
+            var oxygen = data["Oxygen"];
+
+            //Drawing the tree
+            //min len 0.7, max len 0.85
+            //0.15/100 * oxygen + 0.7 is the formula for the lenght of the branches of tree
+            drawTree(0, -len, len*(0.15/100 * oxygen + 0.7), angle + 7, branchWidth * 0.50);
+            drawTree(0, -len, len*(0.15/100 * oxygen + 0.7), angle- 7, branchWidth * 0.50);
             ctx.restore();
         }
         drawTree(canvas.width/2, canvas.height/2 - 50,100,0, 10, 'brown', 'pink');
