@@ -116,7 +116,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$580000$iyUIDWIczrRZfXOspjpf5u$koSM02agYBHKFLUaPDV5ZSo6f5QwkkzLnVTKDJigNd8=','2023-03-14 15:48:30.044014',0,'lh826','','','luigi@gmail.com',0,1,'2023-03-14 15:43:13.500799'),(2,'pbkdf2_sha256$580000$74Xs7Iun50CxMgk9UVjZbY$y1np5rEu3tBf/V4hDE0MAw2nW/X1+i2BS78h0x6cEQA=',NULL,0,'hg1234','','','lh@gmail.com',0,1,'2023-03-14 15:44:41.322983');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$580000$iyUIDWIczrRZfXOspjpf5u$koSM02agYBHKFLUaPDV5ZSo6f5QwkkzLnVTKDJigNd8=','2023-03-14 15:48:30.044014',0,'lh826','','','luigi@gmail.com',0,1,'2023-03-14 15:43:13.500799'),(2,'pbkdf2_sha256$580000$74Xs7Iun50CxMgk9UVjZbY$y1np5rEu3tBf/V4hDE0MAw2nW/X1+i2BS78h0x6cEQA=',NULL,0,'hg1234','','','lh@gmail.com',0,1,'2023-03-14 15:44:41.322983'),(3,'pbkdf2_sha256$580000$8f2dTZhzcFIWu7sZevDLMb$XVBKx6ukC3B/KzFRfA2YeXskQX6jqEDQA+dQoyc9FoU=','2023-03-20 18:08:40.629056',0,'lh123','','','lh123@gmail.com',0,1,'2023-03-20 18:08:20.902094');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,8 +292,33 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('ubbcpq0ei2gpsrpq3s0cxct8guohkwf3','.eJxVjDsOwjAQRO_iGlnx-hObkj5nsHb9wQFkS3FSIe5OIqWAKee9mTfzuK3Fbz0tfo7sygS7_HaE4ZnqAeID673x0Oq6zMQPhZ-086nF9Lqd7t9BwV72tSFLSougMUqbLQ0iKTBBZScUhKQMwOgEYdoTHIAm6wZtQDqp7AiZfb7dPTdN:1pc6t4:oXs9tL6XnKIzme6E-mcdkjja7nKgxBnHyH3IZzW1lH4','2023-03-28 15:48:30.052016');
+INSERT INTO `django_session` VALUES ('ubbcpq0ei2gpsrpq3s0cxct8guohkwf3','.eJxVjDsOwjAQRO_iGlnx-hObkj5nsHb9wQFkS3FSIe5OIqWAKee9mTfzuK3Fbz0tfo7sygS7_HaE4ZnqAeID673x0Oq6zMQPhZ-086nF9Lqd7t9BwV72tSFLSougMUqbLQ0iKTBBZScUhKQMwOgEYdoTHIAm6wZtQDqp7AiZfb7dPTdN:1pc6t4:oXs9tL6XnKIzme6E-mcdkjja7nKgxBnHyH3IZzW1lH4','2023-03-28 15:48:30.052016'),('yziel9dlpyi2taee75acnwrhlfnbn3ow','.eJxVjDsOwyAQBe9CHSEW83PK9D4Dgl0ITiKQjF1FuXtsyUXSvpl5b-bDtha_9bT4mdiVDezyu8WAz1QPQI9Q741jq-syR34o_KSdT43S63a6fwcl9LLXUaI0MtGYpUE0NjgAhTraqDMlBWMaMBNocMJQNACCtAbYTWEdqcw-X_A5N8w:1peJw0:RbgLzjrifrc2spljqvAjUFkfhfHxuIH20nMUR3Ljur8','2023-04-03 18:08:40.635240');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `leaderboard`
+--
+
+DROP TABLE IF EXISTS `leaderboard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `leaderboard` (
+  `username` varchar(255) NOT NULL,
+  `water-saved` int(11) NOT NULL,
+  `plastic-saved` int(11) NOT NULL,
+  `oxygen_saved` int(11) NOT NULL,
+  `totalScore` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `leaderboard`
+--
+
+LOCK TABLES `leaderboard` WRITE;
+/*!40000 ALTER TABLE `leaderboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `leaderboard` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -352,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-20 15:48:07
+-- Dump completed on 2023-03-20 18:35:12
