@@ -6,14 +6,17 @@
 {% endblock %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 	<body>
-		<p class="login">Login Here</p>
-		<form method="post" class="from-group">
-			{% csrf_token %}
-			{{ form }}
-			<p>Don't have an account? Create one <a href="/register">here</a></p>
-		<button type="submit" class="btn btn-success"><span></span>Login</button>	
-		</form>
+		<h1 class="login">Login Here</h1>
+		<p>
+			<form method="post" class="from-group">
+				{% csrf_token %}
+				{{ form| crispy}}
+				<p>Don't have an account? Create one <a href="/register">here</a></p>
+			<button type="submit" class="btn btn-success"><span></span>Login</button>	
+			</form>
+		</p>
 	</body>
 {% endblock %}   
 
