@@ -36,6 +36,9 @@ def leaderboard(request):
 def about(request):
     return render(request, 'about.html')
 
+def settings(request):
+    return render(request, 'settings.html')
+
 def register(request):
     form = RegisterForm()
 
