@@ -23,7 +23,7 @@ body{
 
 .block{
     /*display: flex;*/
-    right: -400;
+    right: -380;
     top: 10;
     display: inline-flex;
     position: relative;

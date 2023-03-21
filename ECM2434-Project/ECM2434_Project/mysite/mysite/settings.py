@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
+    'crispy_forms',
+    'crispy_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,8 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/tree"
+
+
+#DOING THIS FOR TESTING. WILL PROBABLY DELETE LATER
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

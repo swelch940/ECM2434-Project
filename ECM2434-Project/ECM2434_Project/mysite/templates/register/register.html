@@ -1,12 +1,15 @@
 <head>
 	{% load static %}
-		<link rel="stylesheet" href="{%static '/home/loginstyle.css'%}">
+		<link rel="stylesheet" href="{%static '/home/register.css'%}">
 </head>
 {% block content %}
-	<p class="login">Register Now</p>
-    <form method="post" class="form-group">
-	    {% csrf_token %}
-	    {{ form }}
-	    <button type="submit" class="btn btn-success"><span></span>Register</button>
-    </form>
+{% load crispy_forms_tags %}
+	<h1 class="login">Register Now</h1>
+	<p>
+    	<form method="post" class="form-group">
+			{% csrf_token %}
+			{{ form| crispy}}
+	    	<button type="submit" class="btn btn-success"><span></span>Register</button>
+    	</form>
+	</p>
 {% endblock %}
