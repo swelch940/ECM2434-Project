@@ -31,8 +31,10 @@ def map(request):#map page
     return render(request, 'map.html')
 
 def leaderboard(request):
-    return HttpResponse("This will be the leaderboard page")
+    return render(request, 'leaderboard.html')
 
+def about(request):
+    return render(request, 'about.html')
 
 def register(request):
     form = RegisterForm()

@@ -40,7 +40,7 @@ class BarkBuddyTest(TestCase):
     
     testbuddy = bark_buddy.TestBuddy(12345, "test")
     
-    #Test to see if the murder tree fucntions works.
+    #Test to see if the murder tree functions works.
     def test_assert_murder(self):
         self.testbuddy.murder_tree()
         try:
