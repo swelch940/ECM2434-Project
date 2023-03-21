@@ -11,6 +11,8 @@ import math
 import sys
 from . import bark_buddy
 from json import dumps
+from .models import Leaderboard
+from .models import getLeaderboard
 
 def home(request):
     return render(request, 'home.html')
@@ -95,7 +97,6 @@ def checkNearFountain(userCords):
     else:
         return False
     
-
-class Score(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    score = models.IntegerField()
+def leaderboardView(request):
+    leaderboardData = getLeaderboard()
+    return render(request, 'leaderboard.html', {'leaderboardData': leaderboardData})
