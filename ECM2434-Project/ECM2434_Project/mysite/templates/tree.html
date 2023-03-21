@@ -210,59 +210,7 @@
             <br></br>
             <br></br>
             
-            
-            <canvas></canvas>
-            <script>
-
-                var data = JSON.parse("{{oxygen|escapejs}}");
-                var oxygen = data["Oxygen"];
-                var water = data["Water"];
-
-
-                const canvas = document.querySelector('canvas');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                const ctx = canvas.getContext('2d');
-                
-
-                
-                //color1 body, color2 leaves
-                function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
-                    ctx.beginPath();
-                    ctx.save();
-                    ctx.strokeStyle = color1;
-                    ctx.fillStyle = color2;
-                    ctx.lineWidth = branchWidth;
-                    ctx.translate(startX, startY);
-                    ctx.rotate(angle * Math.PI/180);
-                    ctx.moveTo(0, 0);
-                
-                    //len is negative for tree to grow upwards
-                    ctx.lineTo(0, -len);
-                
-                    
-                    ctx.stroke();
-                
-                    //stops drawing when length of tree section is too small
-                    if (len < 50) {
-                        ctx.beginPath();
-                        ctx.arc(0,-len, 10,0, Math.PI/2);
-                        ctx.fill();
-                        ctx.restore();
-                        return;
-                    }
-                
-                    curve = (Math.random() * 10) + 10;
-                    drawTree(0, -len, len*0.7, angle + 7, branchWidth * 0.50);
-                    drawTree(0, -len, len*0.7, angle- 7, branchWidth * 0.50);
-                    ctx.restore();
-                }
-                drawTree(canvas.width/2, canvas.height/2 - 50,100,0, 10, 'brown', 'pink');
-                
-                
-                </script>
-    
-
+        
 
             <canvas></canvas>
             <script>
