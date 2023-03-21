@@ -46,56 +46,12 @@ nav ul li a:hover{
 	transition: .3s;
 }
 
-
-/*
-.navbar{
-	width: 85%;
-	margin: auto;
-	padding: 70px 0px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	
-	display: inline-block;
-}
-
-
-.navbar ul li{
-	list-style: none;
-	display: inline-block;
-	margin: 0 20px;
-	position: relative;
-	text-align: center;
-	display: inline-block;
-}
-
-.navbar ul li a {
-	text-decoration: none;
-	color: #fff;
-	width: 100px;
-	text-transform: uppercase;
-	display: inline-block;
-}
-
-.navbar ul li::after{
-	content: '';
-	height: 3px;
-	width: 0;
-	background: #067d6d;
-	position: absolute;
-	left: 0;
-	bottom: -10;
-	transition: 0.62s;
-	display: inline-block;
-}
-
-.navbar ul li:hover::after{
-	width: 100%;
-}
-*/
-
 .home{
 	font-size: 145px;
+}
+
+.about{
+	color: white;
 }
 
 .tree{

@@ -3,7 +3,7 @@
 	<title> Tree game home page </title>
 </head>
 {% load static %}
-<link rel ="stylesheet" href="{%static '/home/homestyle.css'%}">
+<link rel ="stylesheet" href="{%static '/home/aboutstyle.css'%}">
 <body>
 	<div class = "banner">
         <nav>
@@ -13,10 +13,51 @@
                 <li><a href="/map">Map</a></li>
                 <li><a href="/leaderboard">Leaderboard</a></li>
                 <li><a href="/about">About</a></li>
+                <li><a href="/settings">Settings</a></li>
                 <li><a href="/">Logout</a></li>
             </ul>
             <img src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
+        <div class = "about">
+            <br>
+            <h4>
+                Q: What is this?
+            </h4>
+            <p>
+                This is a tree game. An app developed to promote sustainability 
+                on campus at the University of Exeter. 
+            </p>
+            <br>
+
+
+            <h4>
+                Q: How does the game work? 
+            </h4>
+            <p>
+
+                Bark Buddies is an app developed to promote sustainability on campus 
+                at the University of Exeter. You own a pet tree, and the tree releases 
+                oxygen. Your goal is to care for the tree so it releases as much oxygen 
+                as possible. To do so, you have to water the tree, but if you overwater 
+                or underwater it, it will produce oxygen at a less optimal rate. If 
+                you don't water the tree enough, it'll die, meaning you'll lose all your 
+                oxygen, and the water meter will reset. 
+            </p>
+            <br>
+            <h4>    
+                Q: How does this app promote sustainability? 
+            </h4>
+            <p>
+                You water a tree by using a water fountain on campus. Once you're within 
+                a certain distance of a water fountain and click the "Get Current Location" 
+                button, you'll water the tree. This game is built on trust, so we'll trust 
+                that you'll only water your tree each time you refill your water bottle. 
+                The idea is that by promoting the water fountains on campus, instead of buying 
+                plastic bottles of water, users will reuse water bottles, saving potential plastic 
+                waste. 
+            </p>
+            <br>
+        </div>
     </div>
 </body>
 </html>
