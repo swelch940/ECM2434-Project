@@ -6,6 +6,7 @@ body{
     background-size: cover;
     background-position: center;
     height: 100vh;
+    line-height: 2.25;
     overflow: hidden;
 }
 
@@ -26,8 +27,11 @@ form{
     display: block;
     align-items: center;
     text-align: center;
+    font-weight: bold;
     justify-content: space-between;
-    font-size: 22px;
+    font-size: 40px;
+    text-decoration: underline white;
+    line-height: 1.6;
     color: white;
     padding-top: 130px;
     padding-left: 25%;
