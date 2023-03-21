@@ -18,5 +18,10 @@
             <img src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
     </div>
+    {% for player_name, score in leaderboard_data %}
+    <div>{{ player_name }} - {{ score }}</div>
+    {% endfor %}
+
 </body>
 </html>
+

@@ -1,6 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.contrib import admin
+from .views import leaderboardView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('tree', views.tree, name="tree"),
     path('', include("django.contrib.auth.urls")),
+    path('leaderboard', leaderboardView, name='leaderboard'),
 ]
