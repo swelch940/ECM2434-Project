@@ -1,30 +1,25 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db import connection
-class Leaderboard(models.Model):
-    player = models.ForeignKey(User, on_delete=models.CASCADE)
-    score = models.IntegerField()
+
+class Accounts(models.Model):
+    username = models.CharField(max_length=32,primary_key=True,unique=True)
+    email = models.CharField(max_length=48,unique=True)
+    password = models.CharField(max_length=64)
 
     def __str__(self):
-        return self.player.username
+        return self.username
+
+class Tree(models.Model):
+    username = models.CharField(max_length=32,primary_key=True,unique=True)
+    oxygen = models.BigIntegerField(default=0)
+    level = models.SmallIntegerField(default=1)
+    plastic_saved = models.BigIntegerField(default=0)
+    isAlive = models.BooleanField(default=True)
+    endurance = models.SmallIntegerField(max_length=10)
+    water = models.SmallIntegerField(default=20)
     
+    def __str__(self):
+        return self.username
 
-
-
-def getLeaderboard():
-    with connection.cursor() as cursor:
-        cursor.execute('''
-            SELECT auth_user.username, leaderboard.oxygen-saved
-            FROM auth_user
-            INNER JOIN leaderboard ON auth_user.id = leaderboard.user_id
-            ORDER BY leaderboard.oxygen-saved DESC
-            LIMIT 10
-        ''')
-        rows = cursor.fetchall()
-    return rows
-
-
-
-
-
-
+    
+    def get_leaderboard(self):
+        return self.username, self.oxygen, self.plastic_saved

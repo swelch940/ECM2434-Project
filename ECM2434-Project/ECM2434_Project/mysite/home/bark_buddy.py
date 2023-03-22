@@ -1,7 +1,7 @@
 import asyncio
 
 class BarkBuddy:
-    def __init__(self, id, username, oxygen=0,water=40,level=1,stages={0:"Default"},endurance=5,alive=True):
+    def __init__(self, id, username, oxygen=0,water=40,level=1,stages={0:"Default"},endurance=5,alive=True, plastic =0):
         self.ID = id
         self.USERNAME = username
         self.STAGES = stages
@@ -11,7 +11,7 @@ class BarkBuddy:
         self.level = level
         self.endurance = endurance
         self.alive = alive
-        
+        self.plastic = plastic
         
         #add and sub functions, we can await these uwu
         self.add = lambda a,b: a+b
