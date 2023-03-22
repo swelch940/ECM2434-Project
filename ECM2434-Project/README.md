@@ -21,14 +21,16 @@ To set up the project on your machine:
 
 - First, ensure you have Django installed on your machine. If you don't, you can install it using `pip install Django`.
 - You will also need to ensure you have Crispy forms on your machine. If you don't, you can install it using `pip install crispy-bootstrap5`.
-- Third, navigate to the directory you installed this repository to in the command line and run both `python manage.py managemigrations` and `python manage.py migrate`
+- Secondly, download an sql server to run your application on the backend, we recommend **xamp** for better functionality.
+<https://www.apachefriends.org/download.html>
+- Third, navigate to the directory you installed this repository to in the command line and run `python manage.py migrate`
 - Lastly, to run the project use the command `python manage.py runserver`, open a browser and go to the localhost IP address `127.0.0.1:8000`.
 
 The project is laid out like a standard Django project. We have one app - `home` - and the main site directory is `mysite`. All of our web templates can be found in the `templates` folder.
 
 ### Testing
 
-Tests for the Django project can be found within the `home/tests.py` file.
+The test are refered to the functionality of the game
 
 - **tests.py**
 
@@ -38,6 +40,8 @@ Tests for the Django project can be found within the `home/tests.py` file.
   - mysite
     - home
       - _pycache_
+      - BarkBuddy
+        - barkpickler.py
       - migrations
         - _pycache_
         - _init_.py
@@ -71,22 +75,22 @@ Tests for the Django project can be found within the `home/tests.py` file.
       - urls.py
       - wsgi.py
     - templates
-      - register
-        - register.html
-      - registration
-        - login.html
-      - about.html
-      - bottlesize.html
-      - createaccount.html
-      - deleteaccount-html
-      - home.html
-      - leaderboard.html
-      - logo.png
-      - map.html
-      - newemail.html
-      - newpassword.html
-      - settings.html
-      - tree.html
+    - register
+      - register.html
+    - registration
+      - login.html
+    - about.html
+    - bottlesize.html
+    - createaccount.html
+    - deleteaccount-html
+    - home.html
+    - leaderboard.html
+    - logo.png
+    - map.html
+    - newemail.html
+    - newpassword.html
+    - settings.html
+    - tree.html
     - db.sqlite3
     - manage.py
     - requirements.txt

@@ -1,2 +1,2 @@
-web: python manage.py makemigrations home && python manage.py migrate && python manage.py --run-syncdb  && python manage.py syncdb && python manage.py collectstatic && gunicorn mysite.wsgi --log-file -
+web: python manage.py makemigrations home && python manage.py migrate && python manage.py --run-syncdb && python manage.py collectstatic && gunicorn mysite.wsgi --log-file -
 

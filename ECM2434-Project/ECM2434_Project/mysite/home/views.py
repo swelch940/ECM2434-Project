@@ -146,6 +146,7 @@ def tree(request):
 
     oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}#values to pass to template
     oxygen = dumps(oxygen)
+
     return render(request, 'tree.html', {"oxygen":oxygen})
 
 
