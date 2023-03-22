@@ -33,7 +33,17 @@ def map(request):#map page
     return render(request, 'map.html')
 
 def leaderboard(request):
-    return render(request, 'leaderboard.html')
+    """ code for leaderboard """
+
+    data = Tree.objects.all().values
+          
+    context = {
+    'mymembers': data,
+    }
+
+    print(context)
+
+    return render(request, 'leaderboard.html', context)
     
 def deleteaccount(request):
     """ Code for deleting account page """
