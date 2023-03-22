@@ -136,3 +136,5 @@ LOGIN_REDIRECT_URL = "/tree"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CSRF_TRUSTED_ORIGINS = ['https://ecm2434-project-production-5925.up.railway.app/']
