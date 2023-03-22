@@ -19,28 +19,58 @@
             </ul>
             <img alt src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
-        <p>The queryset object:</p>
-        {{ mymembers }}
+
+
+        <div class="wrapper">
+            <div class="lboard-section">
+                <p class="buddy">BARK BUDDY LEADERBOARD</p>
+                <div class="lboard-wrap">
+                    <table>
+                        <th>Username</th>
+                        <th>Plastic</th>
+                        <th>Oxygen</th>
+                      </tr>
+                      {% for x in mymembers %}
+                        <tr>
+                          <td>{{ x.username }}</td>
+                          <td>{{ x.plastic_saved }}</td>
+                          <td>{{ x.oxygen }}</td>
+                        </tr>
+                      {% endfor %}  
+                  </table>
+                </div>
+            </div>
+        </div>
         
-        <p>Loop through the items:</p>
-        
-        
-        <table border='1' style="color : white;">
-          <tr>
-            <th>username</th>
-            <th>Thing1</th>
-            <th>Thing2</th>
-          </tr>
-          {% for x in mymembers %}
-            <tr>
-              <td>{{ x.username }}</td>
-              <td>{{ x.plastic_saved }}</td>
-              <td>{{ x.oxygen }}</td>
-            </tr>
-          {% endfor %}
-        </table>
-        
-        
+        <script>
+            var tabs = document.querySelectorAll(".lboard-tabs ul li");
+            var plastic = document.querySelector(".plastic");
+            var oxygen = document.querySelector(".oxygen");
+            var items = document.querySelectorAll(".lboard-item");
+            tabs.forEach(function(tab){
+                tab.addEventListener("click", function(){
+                    var currenttab = tab.getAttribute("data-li");
+                    
+    
+                    tab.classList.add("active");
+    
+                    items.forEach(function(item){
+                        item.style.display = "none";
+                    })
+                    if(currenttab == "plastic"){
+                        plastic.style.display = "block";
+                        plastic.style.color = "white";
+                        oxygen.style.display = "block"
+                    }
+                    else if(currenttab == "oxygen"){
+                        oxygen.style.display = "block";
+                        plastic.style.display = "block";
+                        
+                    }
+                })
+            })
+        </script>
+    </div>        
 </body>
 </html>
 

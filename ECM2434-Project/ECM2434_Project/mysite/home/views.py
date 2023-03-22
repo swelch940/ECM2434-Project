@@ -41,8 +41,6 @@ def leaderboard(request):
     'mymembers': data,
     }
 
-    print(context)
-
     return render(request, 'leaderboard.html', context)
     
 def deleteaccount(request):
