@@ -59,7 +59,7 @@ span{
 
 }
 
-.delete_account_h1{
+.delete-account-h1{
 	text-align: center;
 	align-items: center;
 	font-size: 40px;
@@ -67,14 +67,14 @@ span{
 	text-decoration: underline white;
 }
 
-.delete_account_h2{
+.delete-account-h2{
 	text-align: center;
 	align-items: center;
 	color: white;
 	font-size: 20px;
 }
 
-.delete_account_button {
+.delete-account-button {
 	background-color: red;
   	border: none;
 	color: pink;
@@ -94,6 +94,7 @@ span{
     cursor: pointer;
     font-size:200%;
     font-weight: bold;
+	
 }
 
 a:link {
