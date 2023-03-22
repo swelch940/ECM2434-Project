@@ -99,4 +99,4 @@ Tests for the Django project can be found within the `home/tests.py` file.
 ## Details
 
 - Project Created by **Luis Hidalgo**, **Steven Welch**, **Joshua Curry**, **Callum Wilton** and **Nahum Hillier**
-- Github repostery: **<https://github.com/swelch940/ECM2434-Project>**
+- Github repository: **<https://github.com/swelch940/ECM2434-Project>**
