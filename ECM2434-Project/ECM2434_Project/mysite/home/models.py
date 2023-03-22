@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Accounts(models.Model):
     username = models.CharField(max_length=32,primary_key=True,unique=True)
@@ -14,8 +15,9 @@ class Tree(models.Model):
     level = models.SmallIntegerField(default=1)
     plastic_saved = models.BigIntegerField(default=0)
     isAlive = models.BooleanField(default=True)
-    endurance = models.SmallIntegerField(max_length=10)
     water = models.SmallIntegerField(default=20)
+    in_greenhouse = models.BooleanField(default=False)
+    last_active = models.DateTimeField(default=timezone.now())
     bottle_plastic = models.IntegerField(default=500)
     
     def __str__(self):
