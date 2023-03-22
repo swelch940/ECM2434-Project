@@ -14,15 +14,22 @@ Tree game is run through manage.py in the mysite folder, mysite contains all the
 
 Templates contains the html files for the project and the functionality of the game
 
+### For Developers
+
+To set up the project on your machine:
+
+- First, ensure you have Django installed on your machine. If you don't, you can install it using `pip install Django`.
+- Second, download this repository.
+- Third, navigate to the directory you installed this repository to in the command line and run `python manage.py migrate`
+- Lastly, to run the project use the command `python manage.py runserver`, open a browser and go to the localhost IP address `127.0.0.1:8000`.
+
+The project is laid out like a standard Django project. We have one app - `home` - and the main site directory is `mysite`. All of our web templates can be found in the `templates` folder.
+
 ### Testing
 
 The test are refered to the functionality of the game
 
 - **tests.py** 
-
-### Running
-
-To run the game run inside of the mysite folder **python manage.py runserver**, open a browser and go to **<http://127.0.0.1:8000/>**.
 
 ### File Management
 
