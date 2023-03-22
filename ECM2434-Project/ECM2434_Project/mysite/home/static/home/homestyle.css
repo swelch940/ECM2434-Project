@@ -108,6 +108,48 @@ span{
 
 }
 
+.delete_account_h1{
+	text-align: center;
+	align-items: center;
+	font-size: 40px;
+	color: white;
+	text-decoration: underline white;
+}
+
+.delete_account_h2{
+	text-align: center;
+	align-items: center;
+	color: white;
+	font-size: 20px;
+}
+
+.delete_account_button {
+	background-color: lightgreen;
+  	border: none;
+	color: pink;
+	padding: 15px 32px;
+	top: 100;
+	text-align: center;
+	text-decoration: none;
+	list-style-type: none;
+	border-radius: 25px;
+	position: relative;	
+	font-size: 28px;
+	right: -625;
+	display: inline-block;
+	position: relative;
+    border: transparent;
+    font: Roboto;
+    cursor: pointer;
+    font-size:200%;
+    font-weight: bold;
+}
+
+.delete_account_button:hover{
+	color: #abffa0;
+	transition: .3s;
+}
+
 button:hover span{
 	width: 100%;
 }

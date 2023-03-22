@@ -1,4 +1,4 @@
-#@authors Steven Welch, Joshua Curry, Callum Wilson, Nahum Hillier, Luis Hidalgo
+#@authors Steven Welch, Joshua Curry, Callum Wilton, Nahum Hillier, Luis Hidalgo
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -34,6 +34,18 @@ def map(request):#map page
 
 def leaderboard(request):
     return render(request, 'leaderboard.html')
+    
+def deleteaccount(request):
+    return render(request, 'deleteaccount.html')
+    
+def newemail(request):
+    return render(request, 'newemail.html')
+    
+def newpassword(request):
+    return render(request, 'newpassword.html')
+    
+def bottlesize(request):
+    return render(request, 'bottlesize.html')
 
 def about(request):
     return render(request, 'about.html')
