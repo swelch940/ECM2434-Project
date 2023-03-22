@@ -1,1 +1,2 @@
-web: gunicorn mysite.wsgi --log-file -
+web: python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic && gunicorn mysite.wsgi --log-file -
+

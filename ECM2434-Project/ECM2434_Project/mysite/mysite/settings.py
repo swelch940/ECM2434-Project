@@ -13,6 +13,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+CSRF_TRUSTED_ORIGINS = ['https://ecm2434-project-production-582c.up.railway.app']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -24,6 +25,8 @@ SECRET_KEY = 'django-insecure-&0j@+zy!=6@gd1p6-a@!!+n8alz9a(k&&!8_c5_@%@ffd)c41e
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+
 
 
 # Application definition
@@ -137,4 +140,3 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com', 'https://*.127.0.0.1']
