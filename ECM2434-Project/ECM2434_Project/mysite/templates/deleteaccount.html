@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title> Tree game home page </title>
+    <title> Tree game home page </title>
 </head>
 {% load static %}
 <link rel ="stylesheet" href="{%static '/home/deleteaccount.css'%}">
 <body>
-	<div class = "banner">
+    <div class = "banner">
         <nav>
-            <img src="{%static '/home/images/transparent.png'%}" class="logo">  
+            <img alt = "" src="{%static '/home/images/transparent.png'%}" class="logo">  
             <ul>
                 <li><a href="/tree">My Tree</a></li>
                 <li><a href="/map">Map</a></li>
@@ -17,7 +17,7 @@
                 <li><a href="/settings">Settings</a></li>
                 <li><a href="/">Logout</a></li>
             </ul>
-            <img src="{%static '/home/images/transparent.png'%}" class="logo">
+            <img alt = "" src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
         <br>
         <br>
@@ -29,9 +29,60 @@
         <h2 class = "delete-account-h2"> 
             Are you sure you want to delete your account? This can't be reverted. 
         </h2>
-        <div class = "delete-account-button">
-            <a href = "/">Delete Account</a>
+
+        <style>
+            .center {
+              background-color: red;
+              margin: 0;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              color: red;
+            }
+        </style>
+            
+        <div class="center">
+            <button onclick="writeClick()" style="background-color: red; border-color: red; color: white; font-size: 28px;">Delete Account</button>
+
         </div>
+
+        <script>
+            //Function to insert values into the url
+            function insertParam(key, value) {
+                key = encodeURIComponent(key);
+                value = encodeURIComponent(value);
+
+                // kvp looks like ['key1=value1', 'key2=value2', ...]
+                var kvp = document.location.search.substr(1).split('&');
+                let i = 0;
+
+                for (; i < kvp.length; i++) {
+                    if (kvp[i].startsWith(key + '=')) {
+                        let pair = kvp[i].split('=');
+                        pair[1] = value;
+                        kvp[i] = pair.join('=');
+                        break;
+                    }
+                }
+
+                if (i >= kvp.length) {
+                    kvp[kvp.length] = [key, value].join('=');
+                }
+
+                // can return this or...
+                let params = kvp.join('&');
+
+                // reload page with new params
+                document.location.search = params;
+            }
+
+            function writeClick() {
+               insertParam("Deleted", "yes")
+            }
+         </script>
+
     </div>
 </body>
 </html>
