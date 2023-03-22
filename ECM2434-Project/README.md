@@ -38,8 +38,6 @@ Tests for the Django project can be found within the `home/tests.py` file.
   - mysite
     - home
       - _pycache_
-      - BarkBuddy
-        - barkpickler.py
       - migrations
         - _pycache_
         - _init_.py
@@ -73,22 +71,22 @@ Tests for the Django project can be found within the `home/tests.py` file.
       - urls.py
       - wsgi.py
     - templates
-    - register
-      - register.html
-    - registration
-      - login.html
-    - about.html
-    - bottlesize.html
-    - createaccount.html
-    - deleteaccount-html
-    - home.html
-    - leaderboard.html
-    - logo.png
-    - map.html
-    - newemail.html
-    - newpassword.html
-    - settings.html
-    - tree.html
+      - register
+        - register.html
+      - registration
+        - login.html
+      - about.html
+      - bottlesize.html
+      - createaccount.html
+      - deleteaccount-html
+      - home.html
+      - leaderboard.html
+      - logo.png
+      - map.html
+      - newemail.html
+      - newpassword.html
+      - settings.html
+      - tree.html
     - db.sqlite3
     - manage.py
     - requirements.txt
