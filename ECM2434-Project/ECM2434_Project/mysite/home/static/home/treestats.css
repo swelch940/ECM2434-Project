@@ -195,3 +195,24 @@ button:hover {
 .logged-in {
     color: #fffdd0;
 }
+
+.greenhouse-button{
+    background-color: #8cdd7c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    top: 85;
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+    border-radius: 25px;
+    position: relative;
+    right: 300;
+    width: 300;
+    display: inline-block;
+    border: transparent;
+    font: Roboto;
+    cursor: pointer;
+    font-size:100%;
+    font-weight: bold;	
+  }
