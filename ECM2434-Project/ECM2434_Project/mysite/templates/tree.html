@@ -13,8 +13,14 @@
         var data = JSON.parse("{{oxygen|escapejs}}");
         var oxygen = data["Oxygen"];
         var water = data["Water"];
+        var plastic = data["Plastic"];
+        var level = data["Level"];
+        var msg = data["msg"];
         document.getElementById("oxygen").innerHTML = oxygen;
         document.getElementById("water").innerHTML = water;
+        document.getElementById("plastic").innerHTML = plastic;
+        document.getElementById("level").innerHTML = level;
+        document.getElementById("msg").innerHTML = msg;
     };
     
 </script>
@@ -38,10 +44,10 @@
             <div class="block">
                 <div class="box">
                     <p class="number">
-                        <span class="num" id="oxygen"></span>
+                        <span class="num" id="level"></span>
                         <span class="sub">LVL</span>
                     </p>
-                    <p class="title">Oxygen</p>
+                    <p class="title">Level</p>
                 </div>
                 <span class="dots"></span>
                 <svg class="svg">
@@ -72,8 +78,8 @@
                 <div class="box">
                     <p class="number">
                         
-                        <span class="" id="water"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
-                        <span class="sub">ML</span>
+                        <span class="" id="plastic"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
+                        <span class="sub">G</span>
                     </p>
                     <p class="title">Recycling</p>
                 </div>
@@ -86,10 +92,10 @@
                 <div class="box">
                     <p class="number">
                         
-                        <span class="" id="water"></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
-                        <span class="sub">ML</span>
+                        <span class="" id="oxygen"></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
+                        <span class="sub">g</span>
                     </p>
-                    <p class="title">Water Consumed</p>
+                    <p class="title">Oxygen</p>
                 </div>
                 <span class="dots"></span>
                 <svg class="svg">
@@ -124,7 +130,6 @@
                     })
                 });
             </script>
-            
             
             
             <!-- <div class = "hover"> -->
@@ -209,7 +214,6 @@
 
                 </script>
             <!--</div>-->
-            
         
 
             <canvas>
@@ -273,7 +277,7 @@
                 </script>
         {% endblock %}
     {% else %}
-        <p class="loggedIn"> Sorry you are not logged in,<button><a href="/login">login here </a></p></button>
+        <p class="loggedIn"> Sorry you are not logged in, login <a href="/login">here </a></p>
     {% endif %}
     
 
