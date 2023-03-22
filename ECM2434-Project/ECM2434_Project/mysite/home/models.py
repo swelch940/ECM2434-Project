@@ -16,6 +16,7 @@ class Tree(models.Model):
     isAlive = models.BooleanField(default=True)
     endurance = models.SmallIntegerField(max_length=10)
     water = models.SmallIntegerField(default=20)
+    bottle_plastic = models.IntegerField(default=500)
     
     def __str__(self):
         return self.username

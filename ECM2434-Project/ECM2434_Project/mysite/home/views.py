@@ -91,6 +91,24 @@ def newpassword(request):
     return render(request, 'newpassword.html')
     
 def bottlesize(request):
+    """ Lets users change the size of water bottles """
+
+    urlString = str(request)
+    if('plasticAmount=' in urlString):
+        print("changning amount in plastic bottle")
+        t = Tree.objects.get(username = request.user)
+        splitUrl = urlString.split('plasticAmount=')
+        print(splitUrl)
+        newbot = splitUrl[1]
+        newbot = newbot[:-1]
+        newbot = newbot[:-1]
+
+        print(newbot)
+
+        t.bottle_plastic = newbot
+        t.save()
+        
+        
     return render(request, 'bottlesize.html')
 
 def about(request):
