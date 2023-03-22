@@ -16,9 +16,9 @@ class Tree(models.Model):
     plastic_saved = models.BigIntegerField(default=0)
     isAlive = models.BooleanField(default=True)
     water = models.SmallIntegerField(default=20)
-    #in_greenhouse = models.BooleanField(default=False)
-    #last_active = models.DateTimeField(default=timezone.now())
-    #bottle_plastic = models.IntegerField(default=500)
+    in_greenhouse = models.BooleanField(default=False)
+    last_active = models.DateTimeField(default=timezone.now())
+    bottle_plastic = models.IntegerField(default=500)
     
     def __str__(self):
         return self.username
