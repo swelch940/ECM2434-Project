@@ -1,6 +1,5 @@
 from django.test import TestCase
-import asyncio
-from . import bark_buddy
+from home.models import Tree
 
 
 # Create your tests here.
@@ -33,39 +32,19 @@ class URLTests(TestCase):
         response = self.client.get('/register/')
         self.assertEqual(response.status_code, 200)
 
-
-#Currently under construction. 
-class BarkBuddyTest(TestCase):
+class TreeTestCase(TestCase):
+    def setUp(self):
+        Tree.objects.create(username="harry")
     
-    
-    testbuddy = bark_buddy.TestBuddy(12345, "test")
-    
-    #Test to see if the murder tree functions works.
-    def test_assert_murder(self):
-        self.testbuddy.murder_tree()
-        try:
-            assert self.testbuddy.alive == False
-        except(AssertionError):
-            return False
-        else: return True
-    
-    #Test to see if the water function of the tree is working.
-    def test_assert_water_tree(self):
-         try:
-             assert self.testbuddy.water + 5 == self.testbuddy.water_tree()
-         except(AssertionError):
-            return False
-         else: return True
-    
-    #Asserts that the tree can level up
-    def test_level_up(self):
-        try:
-            assert self.testbuddy.level_handling() == self.testbuddy.level + 1
-        except(AssertionError):
-            return False
-        else: return True
-
-
-#More extensive testing needed for the bark_buddy class as we integrate.
+    def assertValues(self):
+        x = Tree.objects.get(username="harry")
+        self.assertEqual(x.username,"harry")
+        self.assertEqual(x.oxygen,0)
+        self.assertEqual(x.level,1)
+        self.assertEqual(x.plastic_saved,0)
+        self.assertEqual(x.water,20)
+        self.assertEqual(x.in_greenhouse,False)
+        self.assertEqual(x.isAlive,True)
+        self.assertEqual(x.bottle_plastic,500)
     
     
