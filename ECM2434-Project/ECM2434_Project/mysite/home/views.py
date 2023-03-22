@@ -155,7 +155,7 @@ def tree(request):
 
     oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}
     oxygen = dumps(oxygen)
-    print(message)
+   
     return render(request, 'tree.html', {"oxygen":oxygen})
 
 
