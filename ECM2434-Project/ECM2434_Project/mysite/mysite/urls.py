@@ -18,11 +18,6 @@ from django.urls import include, path
 from django.http import HttpResponse
 
 urlpatterns = [
-    
-]
-
-
-urlpatterns = [
     path('admin/', admin.site.urls),#admin site
     path('', include('home.urls')),#home page. this also hosts the code for viewing the tree
     path('register/', views.register, name="register"),#account registry page
