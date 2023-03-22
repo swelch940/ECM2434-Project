@@ -19,6 +19,7 @@ Templates contains the html files for the project and the functionality of the g
 To set up the project on your machine:
 
 - First, ensure you have Django installed on your machine. If you don't, you can install it using `pip install Django`.
+- You will also need to ensure you have Crispy forms on your machine. If you don't, you can install it using `pip install crispy-bootstrap5`.
 - Second, download this repository.
 - Third, navigate to the directory you installed this repository to in the command line and run `python manage.py migrate`
 - Lastly, to run the project use the command `python manage.py runserver`, open a browser and go to the localhost IP address `127.0.0.1:8000`.
