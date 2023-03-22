@@ -9,10 +9,10 @@ from django.http import JsonResponse
 from django.http import *
 import math
 import sys
-from . import bark_buddy
+from .bark_buddy import BarkBuddy
 from json import dumps
-from .models import Leaderboard
-from .models import getLeaderboard
+from .models import Tree
+#from .models import getLeaderboard
 
 def home(request):
     return render(request, 'home.html')
@@ -58,14 +58,22 @@ def register(request):
 
 def tree(request):
 
-    with open("text.txt", "r") as f:
-        lines = f.readlines()
-        spam = int(lines[0])
-        eggs = int(lines[1])
-        DB = bark_buddy.BarkBuddy(1, "user", water = spam, oxygen= eggs)
-
-    oxygen = {"Oxygen":eggs, "Water": spam}
     
+    if Tree.objects.filter(username = request.user):
+        userStats = Tree.objects.filter(username = request.user).values()
+        for value in userStats:
+            bb = BarkBuddy(1, value["username"],value["oxygen"], value["water"], plastic = value["plastic_saved"] )
+            print(userStats)
+    else:
+        bb = BarkBuddy(1, request.user)
+    
+    #include if statement if user alrady exists
+    bbTree = Tree(request.user, bb.oxygen, bb.level, bb.plastic, True, bb.endurance, bb.water)
+    
+    bbTree.save()
+    
+   
+
     urlString = str(request)
     splitUrl = urlString.split("%3A=")
     if(len(splitUrl) == 2):
@@ -77,14 +85,17 @@ def tree(request):
         print(cords)
 
         if checkNearFountain(cords):
-            eggs +=1
-            spam +=5
-            with open("text.txt", "w") as f :
-                f.write(str(spam) +"\n" +str(eggs))
+            user = Tree.objects.get(username = request.user)
+            user.oxygen += 1
+            user.water += 5
+            user.plastic_saved += 10
+            user.save()
             
-    test = {"test":DB.oxygen}
+            print("Near")
+
+    oxygen = {"Oxygen":bb.oxygen, "Water": bb.water, "Plastic":bb.plastic}
     oxygen = dumps(oxygen)
-    
+            
     return render(request, 'tree.html', {"oxygen":oxygen})
 
 
@@ -97,6 +108,6 @@ def checkNearFountain(userCords):
     else:
         return False
     
-def leaderboardView(request):
-    leaderboardData = getLeaderboard()
-    return render(request, 'leaderboard.html', {'leaderboardData': leaderboardData})
+#def leaderboardView(request):
+ #   leaderboardData = getLeaderboard()
+ #   return render(request, 'leaderboard.html', {'leaderboardData': leaderboardData})
