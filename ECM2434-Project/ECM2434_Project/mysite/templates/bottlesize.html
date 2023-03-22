@@ -32,8 +32,65 @@
 
         <h4 class = "password_text"> 
             Bottle Size: (ML)
-            <input type = "text">
+            <input type = "text" id = "bottlePlastic">
         </h4>
+
+        <style>
+            .center {
+              background-color: grey;
+              margin: 0;
+              position: absolute;
+              top: 70%;
+              left: 50%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              color: grey;
+            }
+        </style>
+            
+        <div class="center">
+            <button onclick="bottleClick()" style="background-color: grey; border-color: grey; color: black; font-size: 28px;">Submit</button>
+        </div>
+
+        <script>
+            //Function to insert values into the url
+            function insertParam(key, value) {
+                key = encodeURIComponent(key);
+                value = encodeURIComponent(value);
+
+                // kvp looks like ['key1=value1', 'key2=value2', ...]
+                var kvp = document.location.search.substr(1).split('&');
+                let i = 0;
+
+                for (; i < kvp.length; i++) {
+                    if (kvp[i].startsWith(key + '=')) {
+                        let pair = kvp[i].split('=');
+                        pair[1] = value;
+                        kvp[i] = pair.join('=');
+                        break;
+                    }
+                }
+
+                if (i >= kvp.length) {
+                    kvp[kvp.length] = [key, value].join('=');
+                }
+
+                // can return this or...
+                let params = kvp.join('&');
+
+                // reload page with new params
+                document.location.search = params;
+            }
+
+            function bottleClick(){
+                let plastic = document.getElementById("bottlePlastic").value
+                
+                if(plastic.length > 0){
+                    insertParam("plasticAmount", plastic)
+                }
+            }
+        </script>
+
     </div>
 </body>
 </html>
