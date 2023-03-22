@@ -36,9 +36,21 @@ def leaderboard(request):
     return render(request, 'leaderboard.html')
     
 def deleteaccount(request):
+    """ Code for deleting account page """
+
+    urlString = str(request)
+    if('Deleted=yes' in urlString):
+        print("Here")
+        
+        member = Tree.objects.get(username = request.user)
+        member.delete()
+        goneUser = User.objects.get(username = request.user)
+        goneUser.delete()
+
     return render(request, 'deleteaccount.html')
     
 def newemail(request):
+
     return render(request, 'newemail.html')
     
 def newpassword(request):
@@ -51,6 +63,10 @@ def about(request):
     return render(request, 'about.html')
 
 def settings(request):
+    """ Code for sending values to and from back end """
+
+    print("We at settings page")
+
     return render(request, 'settings.html')
 
 def register(request):
@@ -71,6 +87,7 @@ def register(request):
 def tree(request):
 
     
+    #Getting/Creating the users tree
     if Tree.objects.filter(username = request.user):
         userStats = Tree.objects.filter(username = request.user).values()
         for value in userStats:
@@ -79,12 +96,11 @@ def tree(request):
     else:
         bb = BarkBuddy(1, request.user)
     
-    #include if statement if user alrady exists
+    #Saving values to the tree
     bbTree = Tree(request.user, bb.oxygen, bb.level, bb.plastic, True, bb.endurance, bb.water)
-    
     bbTree.save()
     
-   
+    
 
     urlString = str(request)
     splitUrl = urlString.split("%3A=")
@@ -119,7 +135,8 @@ def checkNearFountain(userCords):
         return True
     else:
         return False
-    
+
+
 #def leaderboardView(request):
  #   leaderboardData = getLeaderboard()
  #   return render(request, 'leaderboard.html', {'leaderboardData': leaderboardData})
