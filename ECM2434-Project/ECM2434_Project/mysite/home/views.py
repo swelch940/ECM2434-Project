@@ -1,16 +1,10 @@
 #@authors Steven Welch, Joshua Curry, Callum Wilton, Nahum Hillier, Luis Hidalgo
-from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from mysite.forms import RegisterForm
-import json
-from django.http import JsonResponse
 from django.http import *
 from django.utils import timezone
 import math
-import sys
-from .bark_buddy import BarkBuddy
 from json import dumps
 from .models import Tree
 #from .models import getLeaderboard
@@ -19,7 +13,6 @@ def home(request):
     return render(request, 'home.html')
 
 def map(request):#map page
-    
     print(request)
     
     urlString = str(request)
@@ -102,11 +95,9 @@ def register(request):
 
 
 def tree(request):
-    
     if Tree.objects.filter(username=request.user).count() == 0:#new tree
         user = Tree.objects.create(username=request.user)
-        message = "This is your tree! Make sure to water it regularly.\nYou can also store the tree in the greenhouse if you know you won't be able to water the tree for a while."
-    
+        
     else:#existing trees
         user = Tree.objects.get(username=request.user)#get the tree object
         if user.water == 0 and user.in_greenhouse == False:#if water is zero then tree dies
@@ -122,7 +113,7 @@ def tree(request):
         elif user.in_greenhouse == False:#if not in greenhouse then tree updates
             current = timezone.now()
             elapsed = current - user.last_active
-            count = elapsed.seconds // 7200
+            count = elapsed.seconds // 7200#number of bihourly periods since last login
             if user.water < 20 or user.water > 80:
                 w = (0.65*user.bottle_plastic)//5
             else:
@@ -133,7 +124,7 @@ def tree(request):
             user.water -= 1*count
             user.last_active = current
             user.plastic_saved += count * 8
-            user.save()
+            user.save()#update object
     
 
     urlString = str(request)
@@ -146,16 +137,16 @@ def tree(request):
         cords[1] = cords[1][:-1]
         print(cords)
 
-        if checkNearFountain(cords):
+        if checkNearFountain(cords):#increases oxygen and plastic saved if near fountain
             user.water += 20
             user.plastic_saved += 10
             user.save()
             
             print("Near")
 
-    oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}
+    oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}#values to pass to template
     oxygen = dumps(oxygen)
-   
+
     return render(request, 'tree.html', {"oxygen":oxygen})
 
 
