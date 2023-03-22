@@ -7,6 +7,7 @@ from mysite.forms import RegisterForm
 import json
 from django.http import JsonResponse
 from django.http import *
+from django.utils import timezone
 import math
 import sys
 from .bark_buddy import BarkBuddy
@@ -33,17 +34,7 @@ def map(request):#map page
     return render(request, 'map.html')
 
 def leaderboard(request):
-    """ code for leaderboard """
-
-    data = Tree.objects.all().values
-          
-    context = {
-    'mymembers': data,
-    }
-
-    print(context)
-
-    return render(request, 'leaderboard.html', context)
+    return render(request, 'leaderboard.html')
     
 def deleteaccount(request):
     """ Code for deleting account page """
@@ -80,45 +71,9 @@ def newemail(request):
     return render(request, 'newemail.html')
     
 def newpassword(request):
-    """ Code for chaning users password """
-    
-    urlString = str(request)
-    if('changedPassword=' in urlString):
-        print("chaning password")
-
-        u =  u = User.objects.get(username = request.user)
-        splitUrl = urlString.split("changedPassword=")
-        print(splitUrl)
-        newpass = splitUrl[1]
-        newpass = newpass[:-1]
-        newpass = newpass[:-1]
-
-        print(newpass)
-
-        u.set_password(newpass)
-        u.save()
-
     return render(request, 'newpassword.html')
     
 def bottlesize(request):
-    """ Lets users change the size of water bottles """
-
-    urlString = str(request)
-    if('plasticAmount=' in urlString):
-        print("changning amount in plastic bottle")
-        t = Tree.objects.get(username = request.user)
-        splitUrl = urlString.split('plasticAmount=')
-        print(splitUrl)
-        newbot = splitUrl[1]
-        newbot = newbot[:-1]
-        newbot = newbot[:-1]
-
-        print(newbot)
-
-        t.bottle_plastic = newbot
-        t.save()
-        
-        
     return render(request, 'bottlesize.html')
 
 def about(request):
@@ -147,21 +102,38 @@ def register(request):
 
 
 def tree(request):
+    
+    if Tree.objects.filter(username=request.user).count() == 0:#new tree
+        user = Tree.objects.create(username=request.user)
+        message = "This is your tree! Make sure to water it regularly.\nYou can also store the tree in the greenhouse if you know you won't be able to water the tree for a while."
+    
+    else:#existing trees
+        user = Tree.objects.get(username=request.user)#get the tree object
+        if user.water == 0 and user.in_greenhouse == False:#if water is zero then tree dies
+            if user.isAlive == True:
+                user.isAlive = False
+                user.save()
+            else: #figure out if new tree can be planted
+                current = timezone.now()
+                elapsed = current - user.last_active
+                if elapsed.seconds >=86400:#if 24 hours since last tree planted
+                    user = Tree.objects.create(username=request.user)
 
-    
-    #Getting/Creating the users tree
-    if Tree.objects.filter(username = request.user):
-        userStats = Tree.objects.filter(username = request.user).values()
-        for value in userStats:
-            bb = BarkBuddy(1, value["username"],value["oxygen"], value["water"], plastic = value["plastic_saved"] )
-            print(userStats)
-    else:
-        bb = BarkBuddy(1, request.user)
-    
-    #Saving values to the tree
-    bbTree = Tree(request.user, bb.oxygen, bb.level, bb.plastic, True, bb.endurance, bb.water)
-    bbTree.save()
-    
+        elif user.in_greenhouse == False:#if not in greenhouse then tree updates
+            current = timezone.now()
+            elapsed = current - user.last_active
+            count = elapsed.seconds // 7200
+            if user.water < 20 or user.water > 80:
+                w = (0.65*user.bottle_plastic)//5
+            else:
+                w = user.bottle_plastic//2
+            user.oxygen += user.level*w*count*27 #updated oxygen
+            if user.oxygen // (user.level)**7 > 0 and user.level < 100: #level up if possible
+                user.level += 1
+            user.water -= 1*count
+            user.last_active = current
+            user.plastic_saved += count * 8
+            user.save()
     
 
     urlString = str(request)
@@ -175,17 +147,15 @@ def tree(request):
         print(cords)
 
         if checkNearFountain(cords):
-            user = Tree.objects.get(username = request.user)
-            user.oxygen += 1
-            user.water += 5
+            user.water += 20
             user.plastic_saved += 10
             user.save()
             
             print("Near")
 
-    oxygen = {"Oxygen":bb.oxygen, "Water": bb.water, "Plastic":bb.plastic}
+    oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}
     oxygen = dumps(oxygen)
-            
+    print(message)
     return render(request, 'tree.html', {"oxygen":oxygen})
 
 
