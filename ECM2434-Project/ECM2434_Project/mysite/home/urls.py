@@ -1,7 +1,7 @@
 from django.urls import path, include
 from . import views
 from django.contrib import admin
-from .views import leaderboardView
+#from .views import leaderboardView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -13,5 +13,5 @@ urlpatterns = [
     path('tree', views.tree, name="tree"),
     path('settings', views.settings, name="settings"),
     path('', include("django.contrib.auth.urls")),
-    path('leaderboard', leaderboardView, name='leaderboard'),
+    #path('leaderboard', leaderboardView, name='leaderboard'),
 ]
