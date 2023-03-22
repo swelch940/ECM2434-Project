@@ -17,6 +17,14 @@
 	background-position: center;
 }
 
+.page {
+	background-color: orange;
+    color: #fff;
+    box-shadow: 5px 10px 30px white;
+    align-items: right;
+    justify-content: left;
+}
+
 nav{
 	display: flex;
 	align-items: center;

@@ -12,35 +12,13 @@
             <ul>
                 <li><a href="/tree">My Tree</a></li>
                 <li><a href="/map">Map</a></li>
-                <li><a href="/leaderboard">Leaderboard</a></li>
+                <li class="page"><a href="/leaderboard">Leaderboard</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/settings">Settings</a></li>
                 <li><a href="/">Logout</a></li>
             </ul>
             <img alt src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
-
-        <table>
-            <tr>
-                <th>Hi</th>
-                <th>Hi</th>
-            </tr>
-            <tr>
-                <th>Hi</th>
-                <th>Hi</th>
-            </tr>
-            <tr>
-                <th>Hi</th>
-                <th>Hi</th>
-            </tr>
-        </table>
-    </div>
-<<<<<<< Updated upstream
-{% for player_name, score in leaderboard_data %}
-<div>{{ player_name }} - {{ score }}</div>
-{% endfor %}
-
-=======
     <div class="wrapper">
         <div class="lboard-section">
             <div class="lboard-tabs">
@@ -75,7 +53,7 @@
                     </div>
                     <div class="lboard-mem">
                         <div class="name-bar">
-                            <p><span>2.</span>Alex Mike</p>
+                            <p> 2. Alex Mike</p>
                             <div class="bar-wrap">
                                 <div class="inner-bar" style="width: 80%"></div>
                             </div>
@@ -268,7 +246,6 @@
             })
         })
     </script>
->>>>>>> Stashed changes
 </body>
 </html>
 

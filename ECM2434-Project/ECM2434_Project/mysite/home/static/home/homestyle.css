@@ -153,11 +153,10 @@ button:hover span {
   width: 100%;
 }
 
-<<<<<<< Updated upstream
-button:hover{
+button:hover {
 	border: none;
 }
-=======
+
 button:hover {
   border: none;
 }
@@ -174,8 +173,8 @@ button:hover {
   background: #f94f62;
   padding: 25px 40px;
   position: relative;
-  top: -90%;
   border-radius: 5px;
+  list-style-type: none;
 }
 
 .lboard-section .lboard-tabs ul {
@@ -194,6 +193,15 @@ button:hover {
 .lboard-section .lboard-tabs ul li.active {
   color: #fff;
 }
+
+.page {
+	background-color: orange;
+    color: #fff;
+    box-shadow: 5px 10px 30px white;
+    align-items: right;
+    justify-content: left;
+}
+
 
 .lboard-wrap {
   position: absolute;
@@ -272,4 +280,3 @@ button:hover {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
->>>>>>> Stashed changes
