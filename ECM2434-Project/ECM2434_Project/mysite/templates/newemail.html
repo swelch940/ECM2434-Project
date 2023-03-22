@@ -3,7 +3,7 @@
 	<title> Tree game home page </title>
 </head>
 {% load static %}
-<link rel ="stylesheet" href="{%static '/home/homestyle.css'%}">
+<link rel ="stylesheet" href="{%static '/home/newpassword.css'%}">
 <body>
 	<div class = "banner">
         <nav>
@@ -18,6 +18,27 @@
             </ul>
             <img src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
+
+        <h1 class = "delete_account_h1">
+            Change Email:
+        </h1>
+
+        <h4 class = "password_text">
+            New email:
+            <input type = "text">
+        </h4>
+
+        <br>
+
+        <h4 class = "password_text"> 
+            Confirmation:
+            <input type = "text">
+        </h4>
+
+        <h2 class = "delete_account_button">
+            Confirm
+        </h2>
+
     </div>
 </body>
 </html>
