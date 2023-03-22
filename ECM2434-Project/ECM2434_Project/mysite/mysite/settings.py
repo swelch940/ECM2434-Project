@@ -137,4 +137,4 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['ecm2434-project-production-582c.up.railway']
