@@ -70,6 +70,24 @@ def newemail(request):
     return render(request, 'newemail.html')
     
 def newpassword(request):
+    """ Code for chaning users password """
+    
+    urlString = str(request)
+    if('changedPassword=' in urlString):
+        print("chaning password")
+
+        u =  u = User.objects.get(username = request.user)
+        splitUrl = urlString.split("changedPassword=")
+        print(splitUrl)
+        newpass = splitUrl[1]
+        newpass = newpass[:-1]
+        newpass = newpass[:-1]
+
+        print(newpass)
+
+        u.set_password(newpass)
+        u.save()
+
     return render(request, 'newpassword.html')
     
 def bottlesize(request):
