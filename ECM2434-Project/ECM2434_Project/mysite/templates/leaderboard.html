@@ -18,10 +18,25 @@
             </ul>
             <img src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
+
+        <table>
+            <tr>
+                <th>Hi</th>
+                <th>Hi</th>
+            </tr>
+            <tr>
+                <th>Hi</th>
+                <th>Hi</th>
+            </tr>
+            <tr>
+                <th>Hi</th>
+                <th>Hi</th>
+            </tr>
+        </table>
     </div>
-    {% for player_name, score in leaderboard_data %}
-    <div>{{ player_name }} - {{ score }}</div>
-    {% endfor %}
+{% for player_name, score in leaderboard_data %}
+<div>{{ player_name }} - {{ score }}</div>
+{% endfor %}
 
 </body>
 </html>

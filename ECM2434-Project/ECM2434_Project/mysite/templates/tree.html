@@ -13,10 +13,8 @@
         var data = JSON.parse("{{oxygen|escapejs}}");
         var oxygen = data["Oxygen"];
         var water = data["Water"];
-        var plastic = data["Plastic"]
         document.getElementById("oxygen").innerHTML = oxygen;
         document.getElementById("water").innerHTML = water;
-        document.getElementById("plastic").innerHTML = plastic;
     };
     
 </script>
@@ -73,11 +71,11 @@
             <div class="block">
                 <div class="box">
                     <p class="number">
-                
-                        <span class="" id="plastic"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
-                        <span class="sub">G</span>
+                        
+                        <span class="" id="water"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
+                        <span class="sub">ML</span>
                     </p>
-                    <p class="title">Plastic Saved</p>
+                    <p class="title">Recycling</p>
                 </div>
                 <span class="dots"></span>
                 <svg class="svg">
@@ -88,7 +86,7 @@
                 <div class="box">
                     <p class="number">
                         
-                        <span class="" id="plastic"></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
+                        <span class="" id="water"></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
                         <span class="sub">ML</span>
                     </p>
                     <p class="title">Water Consumed</p>
@@ -173,10 +171,15 @@
                     locationButton.style.color = "white";
                     locationButton.style.font = "Roboto";
                     locationButton.style.cursor = "pointer";
-                    locationButton.style.top = "160";
+                    locationButton.style.top = "85";
                     locationButton.style.fontSize = "200%";
                     locationButton.style.fontWeight = "bold";
-                    locationButton.textContent = "Get current location"; 
+                    locationButton.style.borderRadius = "3px";
+                    locationButton.style.transition = "0.6s ease-in-out";
+                    locationButton.style.backgroundColor = "#222121";
+                    locationButton.style.boxShadow = "5px 10px 30px rgba(0, 0, 0, 0.25)" /*rgba(0, 59, 0, 0.397)"*/;
+                    locationButton.textContent = "Get current location";
+                    
                     locationButton.classList.add("custom-map-control-button");
                     document.body.appendChild(locationButton)
 
@@ -206,16 +209,11 @@
 
                 </script>
             <!--</div>-->
-        
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
             
         
 
-            <canvas></canvas>
+            <canvas>
+            </canvas>
             <script>
 
                 var data = JSON.parse("{{oxygen|escapejs}}");
@@ -225,7 +223,7 @@
 
                 const canvas = document.querySelector('canvas');
                 canvas.width = window.innerWidth;
-                canvas.height = 1500;
+                canvas.height = 1150;
                 const ctx = canvas.getContext('2d');
                 
 
@@ -269,7 +267,7 @@
                     drawTree(0, -len, len*(0.15/100 * oxygen + 0.7), angle- 7, branchWidth * 0.50);
                     ctx.restore();
                 }
-                drawTree(canvas.width/2, canvas.height/2 - 50,100,0, 10, 'brown', 'pink');
+                drawTree(canvas.width/2, canvas.height/2 - 100,80,0, 10, 'brown', 'pink');
                 
                 
                 </script>
