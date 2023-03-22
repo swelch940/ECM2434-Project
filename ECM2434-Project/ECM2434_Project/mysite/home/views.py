@@ -40,7 +40,7 @@ def deleteaccount(request):
 
     urlString = str(request)
     if('Deleted=yes' in urlString):
-        print("Here")
+        print("deleting account")
         
         member = Tree.objects.get(username = request.user)
         member.delete()
@@ -50,6 +50,22 @@ def deleteaccount(request):
     return render(request, 'deleteaccount.html')
     
 def newemail(request):
+    """ Code for changing email """
+    urlString = str(request)
+    if('changedEmail=' in urlString):
+        print("chaning email")
+
+        u =  u = User.objects.get(username = request.user)
+        splitUrl = urlString.split("changedEmail=")
+        print(splitUrl)
+        newemailRaw = splitUrl[1]
+        newemail = newemailRaw.replace('%40', '@')
+        newemail = newemail[:-1]
+        newemail = newemail[:-1]
+        print(newemail)
+
+        u.email = newemail
+        u.save()
 
     return render(request, 'newemail.html')
     
