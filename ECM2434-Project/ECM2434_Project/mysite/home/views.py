@@ -120,6 +120,12 @@ def checkNearFountain(userCords):
     else:
         return False
     
-#def leaderboardView(request):
- #   leaderboardData = getLeaderboard()
- #   return render(request, 'leaderboard.html', {'leaderboardData': leaderboardData})
+def leaderboardView(request):
+  data = Tree.objects.all
+  list_username = {}
+  for username in data:
+      list_username[username]={"water": username["water"], "oxygen":username["oxygen"], "plastic":username["plastic_saved"]}
+
+    
+      
+  return render(request, 'leaderboard.html', list_username)
