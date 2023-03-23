@@ -1,4 +1,6 @@
-*{
+
+/*Style for the general text on screen (The QNA on the webpage).  */
+.about{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -9,6 +11,9 @@
     line-height: 2.25;
 	
 }
+
+
+/*Styles the background*/
 .banner{
 	height: 100vh;
 	width: 100%;
@@ -17,13 +22,18 @@
 	background-position: center;
 }
 
-.page {
+
+/*Styles the currently selected navigation bar button. It just faintly highlights the selected button with a light grey
+to remind the user which webpage they are currently on.*/
+.page{
     color: #fff;
     box-shadow: 5px 10px 30px white;
     align-items: right;
     justify-content: left;
 }
 
+/*Style for the navigation bar. This centers the navigation bar and moves it 
+slightly below the top of the page. */
 nav{
 	display: flex;
 	align-items: center;
@@ -35,32 +45,34 @@ nav{
 	padding-right: 10%;
 }
 
+/*Styles the transparent images to ensure the navigation bar buttons are centered*/
 .logo{
 	width: 120px;
 	cursor: pointer;
 }
 
+/*Styles the list of navigation bar elements. Specifies the distance between elements and that 
+the items need to be displayed horizontally instead of vertically. */
 nav ul li{
 	list-style-type: none;
 	display: inline-block;
 	padding: 10px 20px;
 }
 
+/*Style for the text on the navigation bar buttons. Just specifies the colour should be white, it
+shoudln't be bold, and there's no lines surrounding the text. */
 nav ul li a{
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
 }
 
+
+/*Style for when the user hovers over a navigation bar button.
+It changes the colour of the text from white to green in 0.3 seconds. */ 
 nav ul li a:hover{
 	color: #abffa0;
 	transition: .3s;
-}
-
-.about{
-	color: white;
-	max-width: 1000;
-	right: -250;
 }
 
 

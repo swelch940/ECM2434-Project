@@ -1,3 +1,4 @@
+/*General style for any text on screen. (I.e. fonts and colours) */
 *{
     margin: 0;
     padding: 0;
@@ -10,11 +11,8 @@
     text-decoration: none;
 }
 
+/*Styles the background*/
 body{
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
-  
     padding: 0px;
     background: url(images/graphic-tree-hill_46176-136-_1_.jpg);
 	background-size: cover;
@@ -23,8 +21,8 @@ body{
     
 }
 
+/*Styles the circular progress bars*/
 .block{
-    /*display: flex;*/
     right: -30%;
     top: 10;
     display: inline-flex;
@@ -75,10 +73,11 @@ body{
 
 .box .title{
     font-size: 15px;
-    color: #9b9b9b; /* 9b9b9b*/
+    color: #9b9b9b;
 }
 
 
+/*Styles the dots on the circular progress bars */
 .dots {
     display: block;
 	position: absolute;
@@ -89,6 +88,8 @@ body{
 	transition: 1.5s transform, 1.5s opacity ease;
 }
 
+/*Styles the dots on the circular progress bars after
+the animation */
 .dots::after{
     position: absolute;
     content: '';
@@ -97,8 +98,8 @@ body{
     top: 5px;
     left: 50%;
     border-radius: 50%;
-    background-color: #b7b5b5; /* b7b5b5*/
-    box-shadow: 0 0 5px 2px #585858; /* #585858*/
+    background-color: #b7b5b5;
+    box-shadow: 0 0 5px 2px #585858;
     transform: translateX(-50%);
 
 }
@@ -111,6 +112,7 @@ body{
     transform: rotate(-90deg);
 }
 
+/*Styles the animation for the circular progression*/
 .circle{
     stroke: url(#gradientStyle);
     stroke-width: 4px;
@@ -158,7 +160,8 @@ nav ul li a:hover{
 	transition: .3s;
 }
 
-
+/*Styles the currently selected navigation bar button. It just faintly highlights the selected button with an orange colour
+to remind the user which webpage they are currently on.*/
 .page {
     background-color: orange;
     color: #fff;
@@ -190,14 +193,11 @@ button:hover {
 	border: none;
 }
 
-button:hover {
-  border: none;
-}
-
 .logged-in {
     color: #fffdd0;
 }
 
+/*Styles the two greenhouse buttons*/
 .greenhouse-button{
     background-color: #8cdd7c;
     border: none;

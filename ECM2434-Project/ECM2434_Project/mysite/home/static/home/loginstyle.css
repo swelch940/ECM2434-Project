@@ -1,3 +1,5 @@
+
+/*Styles the body of the webpage*/
 body{
     margin: 0;
     padding: 0;
@@ -10,6 +12,7 @@ body{
     overflow: hidden;
 }
 
+/*Styles the form where the users log in*/
 form{
     display: block;
     align-items: center;
@@ -23,6 +26,7 @@ form{
     padding-right: 30%;
 }
 
+/*Styles the "Login here" text*/
 .login{
     display: block;
     align-items: center;
@@ -39,30 +43,37 @@ form{
     translate: 0px 120px
     }
 
-
+/*Styles the transparent images to ensure the navigation bar buttons are centered*/
 .logo{
     width: 120px;
     cursor: pointer;
 }
 
+/*Styles the list of navigation bar elements. Specifies the distance between elements and that 
+the items need to be displayed horizontally instead of vertically. */
 nav ul li{
     list-style-type: none;
     display: inline-block;
     padding: 10px 20px;
 }
 
+/*Style for the text on the navigation bar buttons. Just specifies the colour should be white, it
+shoudln't be bold, and there's no lines surrounding the text. */
 nav ul li a{
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
+/*Style for when the user hovers over a navigation bar button.
+It changes the colour of the text from white to green in 0.3 seconds. */ 
 nav ul li a:hover{
     color: #abffa0;
     transition: .3s;
 }
 
-
+/*Styles the buttons (with the exception of the nav bars) on the
+webpage.*/
 button{
     width: 300px;
     padding: 5px 0;
@@ -78,6 +89,7 @@ button{
     overflow: hidden;
     font-size: 22px;
 }
+
 span{
     background: #009688;
     height: 110%;
