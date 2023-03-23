@@ -129,7 +129,7 @@
                 });
             </script>
 
-            <div button class = "greenhouse-button">
+            <div button class = "greenhouse-button" onclick="GreenHouseClick()">
                 Store in Greenhouse
             </div>
             
@@ -215,6 +215,11 @@
                             handleLocationError(false, infoWindow, map.getCenter());
                         }
                     });
+
+                    function GreenHouseClick(){
+                        
+                        insertParam("Greenhouse", "Clicked")
+                    }
 
                 </script>
             <!--</div>-->
