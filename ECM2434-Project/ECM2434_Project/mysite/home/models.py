@@ -1,13 +1,6 @@
 from django.db import models
 from django.utils import timezone
 
-class Accounts(models.Model): #user account table
-    username = models.CharField(max_length=32,primary_key=True,unique=True)
-    email = models.CharField(max_length=48,unique=True)
-    password = models.CharField(max_length=64)
-
-    def __str__(self):
-        return self.username
 
 class Tree(models.Model):#tree table
     username = models.CharField(max_length=32,primary_key=True,unique=True)#owner's name

@@ -4,5 +4,5 @@ from .models import Tree
 
 # Register your models here.
 
-admin.site.register(Accounts)
+#Registerring tree table
 admin.site.register(Tree)
