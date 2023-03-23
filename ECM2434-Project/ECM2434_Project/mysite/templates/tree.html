@@ -7,6 +7,7 @@
 {% load static %}
 <link rel="stylesheet" href="{%static '/home/treestats.css'%}">
 
+<!-- script for getting the data from backend to put on buttons in front end --> 
 <script>
     window.onload = function(){
         //parses JSON for tree when the page loads
@@ -26,6 +27,7 @@
     <div class="banner">
     {% if user.is_authenticated %}
         {% block content %}
+        <!-- navigation bar --> 
                 <nav>
                     <img src="{%static '/home/images/transparent.png'%}" class="logo">
                     <ul>
@@ -39,7 +41,8 @@
                     <img src="{%static '/home/images/transparent.png'%}" class="logo">
                 </nav>
             </div>
-            <div class="block">
+            <!-- button for oxygen --> 
+            <div class="block"> 
                 <div class="box">
                     <p class="number">
                         <span class="num" id="oxygen"></span>
@@ -58,6 +61,7 @@
                     <circle class="circle" cx="90" cy="90" r="80" />
                 </svg>
             </div>
+            <!-- button for water --> 
             <div class="block">
                 <div class="box">
                     <p class="number">
@@ -72,6 +76,7 @@
                     <circle class="circle" cx="90" cy="90" r="80" />
                 </svg>
             </div>
+            <!-- button for plastic saved --> 
             <div class="block">
                 <div class="box">
                     <p class="number">
@@ -86,6 +91,7 @@
                     <circle class="circle" cx="90" cy="90" r="80" />
                 </svg>
             </div>
+            <!-- button for level --> 
             <div class="block">
                 <div class="box">
                     <p class="number">
@@ -100,6 +106,8 @@
                     <circle class="circle" cx="90" cy="90" r="80" />
                 </svg>
             </div>
+
+            <!-- script for calculating bar around circle --> 
             <script>
                 const block = document.querySelectorAll('.block');
                 window.addEventListener('load', function () {
@@ -129,10 +137,12 @@
                 });
             </script>
 
+            <!-- button for sending tree to green house --> 
             <div button class = "greenhouse-button" onclick="GreenHouseClick()">
             Store in Greenhouse
 			</div>
 
+            <!-- button for removing tree form green house --> 
 			<div button class = "greenhouse-button" onclick="GreenHouseRemoveClick()">
 				Remove from Greenhouse
 			</div>
@@ -223,11 +233,13 @@
                         }
                     });
 
+                    //inserts data on greenhouse being on to url
                     function GreenHouseClick(){
                         
                         insertParam("Greenhouse", "Clicked")
                     }
 
+                    //inserts data on greenhouse being off to url
                     function GreenHouseRemoveClick(){
 
                         insertParam("Greenhouse", "NotClicked")
@@ -240,13 +252,14 @@
 
             <canvas>
             </canvas>
+            <!-- Script for drawing tree -->
             <script>
 
                 var data = JSON.parse("{{oxygen|escapejs}}");
                 var oxygen = data["Oxygen"];
                 var water = data["Water"];
 
-
+                //setting up the canvas
                 const canvas = document.querySelector('canvas');
                 canvas.width = window.innerWidth;
                 canvas.height = 1150;
@@ -288,7 +301,7 @@
 
                     //Drawing the tree
                     //min len 0.7, max len 0.85
-                    //0.15/100 * oxygen + 0.7 is the formula for the lenght of the branches of tree
+                    //0.15/100 * level + 0.7 is the formula for the lenght of the branches of tree
                     drawTree(0, -len, len*(0.15/100 * level + 0.7), angle + 7, branchWidth * 0.50);
                     drawTree(0, -len, len*(0.15/100 * level + 0.7), angle- 7, branchWidth * 0.50);
                     ctx.restore();
@@ -299,8 +312,10 @@
                 </script>
         {% endblock %}
     {% else %}
+        <!-- redirecting user if they're not logged in -->
         <p class="loggedIn"> Sorry you are not logged in,<button><a href="/login">login here </a></p></button>
     {% endif %}
+    
     
 
    
