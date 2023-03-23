@@ -7,10 +7,12 @@
 
 {% block content %}
 	<body>
+		<!-- getting the user login --> 
 		<p class="login">Login Here</p>
 		<form method="post" class="from-group">
 			{% csrf_token %}
 			{{ form }}
+			<!-- link if a user doesnt have an account --> 
 			<p>Don't have an account? Create one <a href="/register">here</a></p>
 		<button type="submit" class="btn btn-success"><span></span>Login</button>	
 		</form>
