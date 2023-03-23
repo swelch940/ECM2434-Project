@@ -267,13 +267,13 @@
                     
                     //Getting value for oxygen to determine tree size
                     var data = JSON.parse("{{oxygen|escapejs}}");
-                    var oxygen = data["Oxygen"];
+                    var level = data["Level"];
 
                     //Drawing the tree
                     //min len 0.7, max len 0.85
                     //0.15/100 * oxygen + 0.7 is the formula for the lenght of the branches of tree
-                    drawTree(0, -len, len*(0.15/100 * oxygen + 0.7), angle + 7, branchWidth * 0.50);
-                    drawTree(0, -len, len*(0.15/100 * oxygen + 0.7), angle- 7, branchWidth * 0.50);
+                    drawTree(0, -len, len*(0.15/100 * level + 0.7), angle + 7, branchWidth * 0.50);
+                    drawTree(0, -len, len*(0.15/100 * level + 0.7), angle- 7, branchWidth * 0.50);
                     ctx.restore();
                 }
                 drawTree(canvas.width/2, canvas.height/2 - 100,80,0, 10, 'brown', 'pink');
