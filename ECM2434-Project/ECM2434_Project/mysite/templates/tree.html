@@ -13,8 +13,12 @@
         var data = JSON.parse("{{oxygen|escapejs}}");
         var oxygen = data["Oxygen"];
         var water = data["Water"];
+        var plastic_saved = data["Plastic"];
+        var level = data["Level"];
         document.getElementById("oxygen").innerHTML = oxygen;
         document.getElementById("water").innerHTML = water;
+        document.getElementById("plastic_saved").innerHTML = plastic_saved;
+        document.getElementById("level").innerHTML = level;
     };
     
 </script>
@@ -72,10 +76,10 @@
                 <div class="box">
                     <p class="number">
                         
-                        <span class="" id="water"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
-                        <span class="sub">ML</span>
+                        <span class="" id="plastic_saved" style ="font-size: 36; font-weight: bold;"></span> <!-- The value for recycling goes into the first 'span class = ""'-->
+                        <span class="sub">G</span>
                     </p>
-                    <p class="title">Recycling</p>
+                    <p class="title">Plastic Saved</p>
                 </div>
                 <span class="dots"></span>
                 <svg class="svg">
@@ -86,10 +90,10 @@
                 <div class="box">
                     <p class="number">
                         
-                        <span class="" id="water"></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
-                        <span class="sub">ML</span>
+                        <span class="" id="level" style ="font-size: 36; font-weight: bold;"></span>></span> <!-- The value for water consumed goes into the first 'span class = ""'-->
+                        <span class="sub">G</span>
                     </p>
-                    <p class="title">Water Consumed</p>
+                    <p class="title">Level</p>
                 </div>
                 <span class="dots"></span>
                 <svg class="svg">
