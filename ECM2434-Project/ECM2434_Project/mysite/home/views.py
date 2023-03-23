@@ -94,10 +94,45 @@ def newemail(request):
 
 #Returns the newpassword html page
 def newpassword(request):
+    """ Code for chaning users password """
+    
+    urlString = str(request)
+    if('changedPassword=' in urlString):
+        print("chaning password")
+
+        u =  u = User.objects.get(username = request.user)
+        splitUrl = urlString.split("changedPassword=")
+        print(splitUrl)
+        newpass = splitUrl[1]
+        newpass = newpass[:-1]
+        newpass = newpass[:-1]
+
+        print(newpass)
+
+        u.set_password(newpass)
+        u.save()
+
     return render(request, 'newpassword.html')
 
 #Returns the bottlesize html page
 def bottlesize(request):
+    """ Lets users change the size of water bottles """
+
+    urlString = str(request)
+    if('plasticAmount=' in urlString):
+        print("changning amount in plastic bottle")
+        t = Tree.objects.get(username = request.user)
+        splitUrl = urlString.split('plasticAmount=')
+        print(splitUrl)
+        newbot = splitUrl[1]
+        newbot = newbot[:-1]
+        newbot = newbot[:-1]
+
+        print(newbot)
+
+        t.bottle_plastic = newbot
+        t.save()
+
     return render(request, 'bottlesize.html')
 
 #Returns the about html page  
@@ -175,10 +210,11 @@ def tree(request):
 
     #Gets the current coordinates if the "Get current location" button is pressed. 
     urlString = str(request)
-    splitUrl = urlString.split("%3A=")
-    if(len(splitUrl) == 2):
+    #splitUrl = urlString.split("%3A=")
+    if('cords%3A=' in urlString):
         #Cords contains the longitude and latitude of the users current location
         #[0] is the latitutde, [1]is longitude
+        splitUrl = urlString.split("%3A=")
         cords = splitUrl[1].split("%2C")
         cords[1] = cords[1][:-1]
         cords[1] = cords[1][:-1]
@@ -189,6 +225,15 @@ def tree(request):
             user.water += 20
             user.plastic_saved += 10
             user.save()
+    
+    #Code for the green house
+    if('Greenhouse=Clicked' in urlString):
+        print("Button works")
+
+        t = Tree.objects.get(username=request.user)
+        t.in_greenhouse = True
+        t.save()
+
 
     oxygen = {"Oxygen":user.oxygen, "Water": user.water, "Plastic":user.plastic_saved,"Level":user.level}
     oxygen = dumps(oxygen)
