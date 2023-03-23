@@ -20,6 +20,7 @@
 {% load static %}
 <link rel ="stylesheet" href="{%static '/home/map.css'%}">
 <body>
+  <!-- navigation bar -->
     <nav>
         <img src= "{%static '/home/images/transparent.png'%}" class = "logo">
         <ul>
@@ -78,7 +79,7 @@
         zoom: 16,
         center: uluru,
       });
-      // The marker, positioned at Uluru
+      // Creating markers for fountains on campus
       const uniofexeter = new google.maps.Marker({
 
         position: uluru,
@@ -129,7 +130,7 @@
 
 
       infoWindow = new google.maps.InfoWindow();
-
+      //code for get location button
       const locationButton = document.createElement("button");
 
       locationButton.textContent = "Pan to Current Location";
@@ -152,7 +153,7 @@
               map.setCenter(pos);
 
 
-
+              //writing the cords to the url
               insertParam("cords:", String(pos.lat) + "," + String(pos.lng))
             },
             () => {
@@ -174,7 +175,7 @@
 
 
     }
-
+    //Error handling incase geolocation doesnt work
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(
@@ -189,6 +190,7 @@
 
     window.initMap = initMap;
   </script>
+  <!-- script for getting the api -->
   <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgpm97bbMfifqwJ2jYrXBrQDCWqWg-P38&callback=initMap">
     </script>
