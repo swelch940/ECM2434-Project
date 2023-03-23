@@ -17,9 +17,9 @@ body{
     min-height: 100vh;
     padding: 0px;
     background: url(images/graphic-tree-hill_46176-136-_1_.jpg);
-	background-size: cover;
-	background-position: center;
-    position: fixed;
+    background-size: cover; 
+    background-position: center;
+ 
 }
 
 .block{
