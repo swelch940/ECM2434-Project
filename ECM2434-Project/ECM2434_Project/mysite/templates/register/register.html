@@ -3,9 +3,11 @@
 		<link rel="stylesheet" href="{%static '/home/register.css'%}">
 </head>
 {% block content %}
+<!-- loading formatting for register --> 
 {% load crispy_forms_tags %}
 	<h1 class="login">Register Now</h1>
 	<p>
+		<!-- registering user --> 
     	<form method="post" class="form-group">
 			{% csrf_token %}
 			{{ form| crispy}}
