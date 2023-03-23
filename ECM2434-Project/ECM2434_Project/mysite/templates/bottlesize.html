@@ -6,6 +6,7 @@
 <link rel ="stylesheet" href="{%static '/home/newpassword.css'%}">
 <body>
 	<div class = "banner">
+        <!-- the navigation bar --> 
         <nav>
             <img src="{%static '/home/images/transparent.png'%}" class="logo">  
             <ul>
@@ -26,15 +27,18 @@
         </h1>
         <br>
         <br>
+        <!-- Text asking user to enter their bottle size --> 
         <h2 class = "delete_account_h2"> 
             Please set your bottle size below:
         </h2>
 
+        <!-- getting the users bottle size --> 
         <h4 class = "password_text"> 
             Bottle Size: (ML)
             <input type = "text" id = "bottlePlastic">
         </h4>
 
+        <!-- Styling the button --> 
         <style>
             .center {
               background-color: grey;
@@ -47,11 +51,13 @@
               color: grey;
             }
         </style>
-            
+        
+        <!-- the submit changes button --> 
         <div class="center">
             <button onclick="bottleClick()" style="background-color: grey; border-color: grey; color: black; font-size: 28px;">Submit</button>
         </div>
 
+        <!-- script to give functionality to the button --> 
         <script>
             //Function to insert values into the url
             function insertParam(key, value) {
@@ -82,7 +88,9 @@
                 document.location.search = params;
             }
 
+            //function which is called when the button is clicked
             function bottleClick(){
+                //getting the value inputted and adding it to the url
                 let plastic = document.getElementById("bottlePlastic").value
                 
                 if(plastic.length > 0){
