@@ -228,10 +228,17 @@ def tree(request):
     
     #Code for the green house
     if('Greenhouse=Clicked' in urlString):
-        print("Button works")
+        print("entering green house")
 
         t = Tree.objects.get(username=request.user)
         t.in_greenhouse = True
+        t.save()
+    
+    if('Greenhouse=NotClicked' in urlString):
+        print("Leaving Green house")
+
+        t = Tree.objects.get(username=request.user)
+        t.in_greenhouse = False
         t.save()
 
 

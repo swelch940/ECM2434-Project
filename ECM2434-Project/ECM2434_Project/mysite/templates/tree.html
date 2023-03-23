@@ -133,7 +133,7 @@
             Store in Greenhouse
 			</div>
 
-			<div button class = "greenhouse-button" onclick="GreenHouseClick()">
+			<div button class = "greenhouse-button" onclick="GreenHouseRemoveClick()">
 				Remove from Greenhouse
 			</div>
 
@@ -225,6 +225,11 @@
                     function GreenHouseClick(){
                         
                         insertParam("Greenhouse", "Clicked")
+                    }
+
+                    function GreenHouseRemoveClick(){
+
+                        insertParam("Greenhouse", "NotClicked")
                     }
 
                 </script>
