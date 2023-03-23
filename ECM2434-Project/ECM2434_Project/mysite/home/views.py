@@ -10,10 +10,9 @@ from django.http import *
 from django.utils import timezone
 import math
 import sys
-from .bark_buddy import BarkBuddy
 from json import dumps
 from .models import Tree
-#from .models import getLeaderboard
+
 
 #Returns the home html page
 def home(request):
