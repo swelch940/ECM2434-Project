@@ -14,17 +14,18 @@ body{
     /*display: flex;
     align-items: center;
     justify-content: center;*/
-    min-height: 100vh;
+  
     padding: 0px;
     background: url(images/graphic-tree-hill_46176-136-_1_.jpg);
-    background-size: cover; 
-    background-position: center;
- 
+	background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
 }
 
 .block{
     /*display: flex;*/
-    right: -380;
+    right: -30%;
     top: 10;
     display: inline-flex;
     position: relative;
@@ -178,6 +179,7 @@ button {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    left: 1;
   }
 
 button:hover span {
@@ -207,7 +209,7 @@ button:hover {
     list-style-type: none;
     border-radius: 25px;
     position: relative;
-    right: 300;
+    right: 100;
     width: 300;
     display: inline-block;
     border: transparent;
