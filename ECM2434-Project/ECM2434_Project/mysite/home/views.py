@@ -40,19 +40,18 @@ def leaderboard(request):
     """ code for leaderboard """
     
     urlString = str(request)
+
+    #Checking whether to sort by plastic or oxygen
     if('Sort=Plastic' in urlString):
         data = Tree.objects.all().order_by('-plastic_saved').values()
     else:
         data = Tree.objects.all().order_by('-oxygen').values()
 
+    #The data in a form that can be passed to the front end
     context = {
     'mymembers': data,
     }
-    print(data)
-    print(" ")
-
-    print(context)
-
+    
     return render(request, 'leaderboard.html', context)
     
 #Returns the delete account html page. Also checks the URL string. If the
@@ -62,9 +61,15 @@ def deleteaccount(request):
     """ Code for deleting account page """
 
     urlString = str(request)
+
+    #Checks to see if delete account button is pressed
     if('Deleted=yes' in urlString):
+
+        #deleting the user from the tree table
         member = Tree.objects.get(username = request.user)
         member.delete()
+
+        #delete the user from the user table
         goneUser = User.objects.get(username = request.user)
         goneUser.delete()
 
@@ -80,6 +85,7 @@ def newemail(request):
     #If the email has been changed
     if('changedEmail=' in urlString):
 
+        #getting the new email from the url
         u =  u = User.objects.get(username = request.user)
         splitUrl = urlString.split("changedEmail=")
         newemailRaw = splitUrl[1]
@@ -97,8 +103,10 @@ def newpassword(request):
     """ Code for chaning users password """
     
     urlString = str(request)
+
+    #checks to see if the password should be changed
     if('changedPassword=' in urlString):
-        print("chaning password")
+        #chaning password
 
         u =  u = User.objects.get(username = request.user)
         splitUrl = urlString.split("changedPassword=")
@@ -106,8 +114,6 @@ def newpassword(request):
         newpass = splitUrl[1]
         newpass = newpass[:-1]
         newpass = newpass[:-1]
-
-        print(newpass)
 
         u.set_password(newpass)
         u.save()
@@ -119,8 +125,10 @@ def bottlesize(request):
     """ Lets users change the size of water bottles """
 
     urlString = str(request)
+
+    #checking to see if the user requests new plastic bottle
     if('plasticAmount=' in urlString):
-        print("changning amount in plastic bottle")
+        #changning amount in botle_plastic
         t = Tree.objects.get(username = request.user)
         splitUrl = urlString.split('plasticAmount=')
         print(splitUrl)
