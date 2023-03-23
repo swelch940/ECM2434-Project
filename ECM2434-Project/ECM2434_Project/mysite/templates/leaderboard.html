@@ -7,6 +7,7 @@
 <link rel ="stylesheet" href="{%static '/home/homestyle.css'%}">
 <body>
   <div class = "banner">
+    <!-- navigation bar -->
         <nav>
             <img alt src="{%static '/home/images/transparent.png'%}" class="logo">  
             <ul>
@@ -20,7 +21,7 @@
             <img alt src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
 
-
+        <!-- div for the leaderboard table -->
         <div class="wrapper">
             <div class="lboard-section">
                 <p class="buddy">BARK BUDDY LEADERBOARD</p>
@@ -41,7 +42,7 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Script for styling leaderboard table -->
         <script>
             var tabs = document.querySelectorAll(".lboard-tabs ul li");
             var plastic = document.querySelector(".plastic");
@@ -72,7 +73,7 @@
         </script>
             
 
-
+        <!-- script for letting people sort leaderboard by conditions -->
         <script>
             //Function to insert values into the url
             function insertParam(key, value) {

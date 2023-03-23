@@ -6,6 +6,7 @@
 <link rel ="stylesheet" href="{%static '/home/newpassword.css'%}">
 <body>
 	<div class = "banner">
+        <!-- navigation bar -->
         <nav>
             <img src="{%static '/home/images/transparent.png'%}" class="logo">  
             <ul>
@@ -19,26 +20,30 @@
             <img src="{%static '/home/images/transparent.png'%}" class="logo">
         </nav>
 
+        <!-- texting asking user to change email -->
         <h1 class = "delete_account_h1">
             Change Email:
         </h1>
 
+        <!-- Getting the users input for a new email -->
         <h4 class = "password_text">
             New email:
             <input type = "text" id = "emailFirst">
         </h4>
 
         <br>
-
+        <!-- confirming input for new email -->
         <h4 class = "password_text"> 
             Confirmation:
             <input type = "text" id = "emailSecond">
         </h4>
 
+        <!-- submit button for the email -->
         <h2 class = "delete_account_button">
             <button onclick="writeEmail()" style="background-color: grey; color: black; border-color: grey;">Change Email</button>
         </h2>
 
+        <!-- script to give functionality to submit button -->
         <script>
             //Function to insert values into the url
             function insertParam(key, value) {
@@ -69,6 +74,7 @@
                 document.location.search = params;
             }
 
+            //writes new email to the url when submit button is clicked
             function writeEmail(){
                 let emailFirst = document.getElementById("emailFirst").value
                 let emailSecond = document.getElementById("emailSecond").value
