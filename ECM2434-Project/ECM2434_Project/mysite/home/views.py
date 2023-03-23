@@ -37,7 +37,20 @@ def map(request):
 
 #Returns the leaderboard html page
 def leaderboard(request):
-    return render(request, 'leaderboard.html')
+    """ code for leaderboard """
+    
+    data = Tree.objects.all().order_by('-oxygen').values()
+    
+
+    context = {
+    'mymembers': data,
+    }
+    print(data)
+    print(" ")
+
+    print(context)
+
+    return render(request, 'leaderboard.html', context)
     
 #Returns the delete account html page. Also checks the URL string. If the
 #url string contains "deleted=yes", i.e. the user has pressed the button
