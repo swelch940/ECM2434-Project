@@ -72,8 +72,6 @@ The url for the website is: https://ecm2434-project-production-582c.up.railway.a
   - mysite
     - home
       - _pycache_
-      - BarkBuddy
-        - barkpickler.py
       - migrations
         - _pycache_
         - _init_.py
@@ -93,7 +91,6 @@ The url for the website is: https://ecm2434-project-production-582c.up.railway.a
       - _init_.py
       - admin.py
       - apps.py
-      - bark_buddy.py
       - models.py
       - tests.py
       - urls.py
