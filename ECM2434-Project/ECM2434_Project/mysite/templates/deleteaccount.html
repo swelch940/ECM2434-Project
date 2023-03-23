@@ -7,6 +7,7 @@
 <link rel ="stylesheet" href="{%static '/home/deleteaccount.css'%}">
 <body>
     <div class = "banner">
+        <!-- the navigation bar --> 
         <nav>
             <img alt = "" src="{%static '/home/images/transparent.png'%}" class="logo">  
             <ul>
@@ -22,6 +23,7 @@
         <br>
         <br>
         <br>
+        <!-- Title of the page --> 
         <h1 class = "delete-account-h1">
             Deleting account
         </h1>
@@ -30,6 +32,7 @@
             Are you sure you want to delete your account? This can't be reverted. 
         </h2>
 
+        <!-- styling the delete account button --> 
         <style>
             .center {
               background-color: red;
@@ -42,12 +45,14 @@
               color: red;
             }
         </style>
-            
+        
+        <!-- the delete account button --> 
         <div class="center">
             <button onclick="writeClick()" style="background-color: red; border-color: red; color: white; font-size: 28px;">Delete Account</button>
 
         </div>
 
+        <!-- script to give functionality to the delete account button --> 
         <script>
             //Function to insert values into the url
             function insertParam(key, value) {
@@ -78,6 +83,7 @@
                 document.location.search = params;
             }
 
+            //called when the button is clicked
             function writeClick() {
                insertParam("Deleted", "yes")
             }
