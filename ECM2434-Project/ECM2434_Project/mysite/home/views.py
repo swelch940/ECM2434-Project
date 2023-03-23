@@ -39,8 +39,11 @@ def map(request):
 def leaderboard(request):
     """ code for leaderboard """
     
-    data = Tree.objects.all().order_by('-oxygen').values()
-    
+    urlString = str(request)
+    if('Sort=Plastic' in urlString):
+        data = Tree.objects.all().order_by('-plastic_saved').values()
+    else:
+        data = Tree.objects.all().order_by('-oxygen').values()
 
     context = {
     'mymembers': data,
