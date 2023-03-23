@@ -1,3 +1,4 @@
+/*General style for any text on screen. (I.e. fonts and colours) */
 *{
     margin: 0;
     padding: 0;
@@ -11,19 +12,15 @@
 }
 
 body{
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
     min-height: 100vh;
     padding: 0px;
     background: url(images/graphic-tree-hill_46176-136-_1_.jpg);
 	background-size: cover;
 	background-position: center;
-    /*position: fixed;*/
 }
 
+/*Styles the background*/
 .block{
-    /*display: flex;*/
     right: -380;
     top: 10;
     display: inline-flex;
@@ -35,6 +32,7 @@ body{
     border-radius: 50%;
 }
 
+/*Styles the circular progress bars*/
 .box{
     position: relative;
     display: flex;
@@ -47,6 +45,7 @@ body{
     background-color: #292929;
     box-shadow: 0 0 5px 3px #222121;
 }
+
 
 .box::before {
     position: absolute;
@@ -72,7 +71,7 @@ body{
 
 .box .title{
     font-size: 15px;
-    color: #9b9b9b; /* 9b9b9b*/
+    color: #9b9b9b;
 }
 
 
@@ -94,8 +93,8 @@ body{
     top: 5px;
     left: 50%;
     border-radius: 50%;
-    background-color: #b7b5b5; /* b7b5b5*/
-    box-shadow: 0 0 5px 2px #585858; /* #585858*/
+    background-color: #b7b5b5;
+    box-shadow: 0 0 5px 2px #585858;
     transform: translateX(-50%);
 
 }
@@ -120,6 +119,8 @@ body{
 }
 
 
+/*Style for the navigation bar. This centers the navigation bar and moves it 
+slightly below the top of the page. */
 nav{
 	display: flex;
 	align-items: center;
@@ -131,32 +132,43 @@ nav{
 	padding-right: 10%;
 }
 
+/*Styles the transparent images to ensure the navigation bar buttons are centered*/
 .logo{
 	width: 120px;
 	cursor: pointer;
 }
 
+/*Styles the list of navigation bar elements. Specifies the distance between elements and that 
+the items need to be displayed horizontally instead of vertically. */
 nav ul li{
 	list-style-type: none;
 	display: inline-block;
 	padding: 10px 20px;
 }
 
+/*Style for the text on the navigation bar buttons. Just specifies the colour should be white, it
+shoudln't be bold, and there's no lines surrounding the text. */
 nav ul li a{
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
 }
 
+/*Style for when the user hovers over a navigation bar button.
+It changes the colour of the text from white to green in 0.3 seconds. */ 
 nav ul li a:hover{
 	color: #abffa0;
 	transition: .3s;
 }
 
+/*Style for when the user hovers over a navigation bar button.
+It changes the colour of the text from white to green in 0.3 seconds. */ 
 .loggedIn{
     color: red;
 }
 
+/*Styles the currently selected navigation bar button. It just faintly highlights the selected button with an orange
+to remind the user which webpage they are currently on.*/
 .page {
     background-color: orange;
     color: #fff;
